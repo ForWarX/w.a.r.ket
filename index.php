@@ -260,7 +260,7 @@ if (!$smarty->is_cached('index.dwt', $cache_id))
     /* 页面中的动态内容 */
     assign_dynamic('index');
 }
-print("test!!@@2222");
+print("test!!@@2222222");
 $smarty->display('index.dwt', $cache_id);
 
 /*------------------------------------------------------ */
