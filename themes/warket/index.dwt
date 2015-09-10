@@ -21,7 +21,6 @@
 
 
 <body>
-
 <!--<input type="text" id="x" style="position:fixed; top:10px; left:10px;">
 <input type="text" id="y" style="position:fixed; top:30px; left:10px;" >-->
 <!-- #BeginLibraryItem "/library/index_page_header.lbi" --><!-- #EndLibraryItem -->
@@ -108,18 +107,30 @@
                 $PauseOnHover: 1,                               //[Optional] Whether to pause when mouse over if a slideshow is auto playing, default value is false
 
                 $ArrowKeyNavigation: true,   			            //Allows arrow key to navigate or not
-                $SlideWidth: 602,                                   //[Optional] Width of every slide in pixels, the default is width of 'slides' container
+                //$SlideWidth: 602,                                   //[Optional] Width of every slide in pixels, the default is width of 'slides' container
                 //$SlideHeight: 300,                                  //[Optional] Height of every slide in pixels, the default is width of 'slides' container
-                $SlideSpacing: 2, 					                //Space between each slide in pixels
-                $DisplayPieces: 2,                                  //Number of pieces to display (the slideshow would be disabled if the value is set to greater than 1), the default value is 1
-                $ParkingPosition: 903,                                //The offset position to park slide (this options applys only when slideshow disabled).
-
+                //$SlideSpacing: 2, 					                //Space between each slide in pixels
+                //$DisplayPieces: 2,                                  //Number of pieces to display (the slideshow would be disabled if the value is set to greater than 1), the default value is 1
+                //$ParkingPosition: 903,                                //The offset position to park slide (this options applys only when slideshow disabled).
+				/*
                 $ArrowNavigatorOptions: {                       //[Optional] Options to specify and enable arrow navigator or not
                     $Class: $JssorArrowNavigator$,              //[Requried] Class to create arrow navigator instance
                     $ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
                     $AutoCenter: 2,                                 //[Optional] Auto center arrows in parent container, 0 No, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
                     $Steps: 1                                       //[Optional] Steps to go for each navigation request, default value is 1
-                }
+                },
+                */
+                $BulletNavigatorOptions: {                          //[Optional] Options to specify and enable navigator or not
+                    $Class: $JssorBulletNavigator$,                 //[Required] Class to create navigator instance
+                    $ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+                    $AutoCenter: 0,                                 //[Optional] Auto center navigator in parent container, 0 None, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
+                    $Steps: 1,                                      //[Optional] Steps to go for each navigation request, default value is 1
+                    $Lanes: 1,                                      //[Optional] Specify lanes to arrange items, default value is 1
+                    $SpacingX: 10,                                  //[Optional] Horizontal space between each item in pixel, default value is 0
+                    $SpacingY: 10,                                  //[Optional] Vertical space between each item in pixel, default value is 0
+                    $Orientation: 1,                                //[Optional] The orientation of the navigator, 1 horizontal, 2 vertical, default value is 1
+                    $Scale: false                                   //Scales bullets navigator or not while slider scale
+                },
             };
 
             var jssor_main_banner = new $JssorSlider$(containerId, options);
@@ -142,20 +153,20 @@
         };
     </script>
 	<!-- scroll banner -->
-   <script>
+   	<script>
         slide_go = function (containerId,AutoPlay,drag) {
            if(AutoPlay == ''){AutoPlay = false;}
            if(drag == ''){drag = 0;}
 
             var options = {
                 $FillMode: 2,                                       //[Optional] The way to fill image in slide, 0 stretch, 1 contain (keep aspect ratio and put all inside slide), 2 cover (keep aspect ratio and cover whole slide), 4 actual size, 5 contain for large image, actual size for small image, default value is 0
-                $AutoPlay: AutoPlay,                                    //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
+                $AutoPlay: AutoPlay,                                //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
                 $AutoPlayInterval: 4000,                            //[Optional] Interval (in milliseconds) to go for next slide since the previous stopped if the slider is auto playing, default value is 3000
                 $PauseOnHover: 1,                                   //[Optional] Whether to pause when mouse over if a slider is auto playing, 0 no pause, 1 pause for desktop, 2 pause for touch device, 3 pause for desktop and touch device, 4 freeze for desktop, 8 freeze for touch device, 12 freeze for desktop and touch device, default value is 1
 
                 $ArrowKeyNavigation: true,   			            //[Optional] Allows keyboard (arrow key) navigation or not, default value is false
                 $SlideEasing: $JssorEasing$.$EaseOutQuint,          //[Optional] Specifies easing for right to left animation, default value is $JssorEasing$.$EaseOutQuad
-                $ : 800,                                //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
+                $ : 800,                                			//[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
                 $MinDragOffsetToSlide: 20,                          //[Optional] Minimum drag offset to trigger slide , default value is 20
                 //$SlideWidth: 788,                                 //[Optional] Width of every slide in pixels, default value is width of 'slides' container
                 //$SlideHeight: 300,                                //[Optional] Height of every slide in pixels, default value is height of 'slides' container
@@ -164,9 +175,9 @@
                 $ParkingPosition: 0,                                //[Optional] The offset position to park slide (this options applys only when slideshow disabled), default value is 0.
                 $UISearchMode: 1,                                   //[Optional] The way (0 parellel, 1 recursive, default value is 1) to search UI components (slides container, loading screen, navigator container, arrow navigator container, thumbnail navigator container etc).
                 $PlayOrientation: 1,                                //[Optional] Orientation to play slide (for auto play, navigation), 1 horizental, 2 vertical, 5 horizental reverse, 6 vertical reverse, default value is 1
-                $DragOrientation: drag,                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
+                $DragOrientation: drag,                             //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
                
-$Delay: 800,  //Delay to assembly blocks
+				$Delay: 800,  										//Delay to assembly blocks
                 $BulletNavigatorOptions: {                          //[Optional] Options to specify and enable navigator or not
                     $Class: $JssorBulletNavigator$,                 //[Required] Class to create navigator instance
                     $ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
@@ -179,8 +190,8 @@ $Delay: 800,  //Delay to assembly blocks
                     $Scale: false                                   //Scales bullets navigator or not while slider scale
                 },
 
-                $ArrowNavigatorOptions: {                       //[Optional] Options to specify and enable arrow navigator or not
-                    $Class: $JssorArrowNavigator$,              //[Requried] Class to create arrow navigator instance
+                $ArrowNavigatorOptions: {                      		//[Optional] Options to specify and enable arrow navigator or not
+                    $Class: $JssorArrowNavigator$,              	//[Requried] Class to create arrow navigator instance
                     $ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
                     $AutoCenter: 2,                                 //[Optional] Auto center arrows in parent container, 0 No, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
                     $Steps: 1                                       //[Optional] Steps to go for each navigation request, default value is 1
@@ -211,29 +222,42 @@ $Delay: 800,  //Delay to assembly blocks
     
     <!-- Jssor Slider Begin -->
     <!-- You can move inline styles to css file or css block. -->
-    <div id="main_banner_container" style="position: relative; top: 0px; left: 0px; width: 1200px;
-        height: 300px; overflow: hidden;">
-		<div class="left-mask" style="z-index:200;background:rgba(134, 134, 134, 0.3);width:24.8%;%;height:300px;position: absolute; top: 0px;left:0;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4c67d670,endColorstr=#4c67d670);"></div>
-		<!--<div class="left-mask-bar" style="z-index:201;background:rgba(255,255,255,1);width:2px;height:300px;position: absolute; top: 0px;left: 24.8%;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff,endColorstr=#ffffff);"></div>-->
-        <!-- Slides Container -->
-        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 1200px; height: 300px;
-            overflow: hidden;">
-		{insert name='ads' id=14} 	
-        </div>
-        <!-- Arrow Navigator Skin Begin -->
-
-        <!-- Arrow Left -->
-        <span u="arrowleft" class="jssora13l" style="width: 40px; height: 50px; top: 120px; left: 250px;">
-        </span>
-        <!-- Arrow Right -->
-        <span u="arrowright" class="jssora13r" style="width: 40px; height: 50px; top: 120px; right: 250px">
-        </span>
-        <!-- Arrow Navigator Skin End -->
-
-		<!--<div class="right-mask-bar" style="z-index:201;background:rgba(255,255,255,1);width:2px;height:300px;position: absolute; top: 0px;left: 75%;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff,endColorstr=#ffffff);"></div>-->
-			<div class="right-mask" style="z-index:200;background:rgba(134, 134, 134, 0.3);width:25%;height:300px;position: absolute;top: 0px;
-		left: 75.2%;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4c67d670,endColorstr=#4c67d670);"></div>
-			</div>		
+    <div id="main_banner_container" style="position: relative; top: 0px; left: 0px; width: 1200px; height: 300px; overflow: hidden;">
+		
+		<!-- Slides Container -->
+        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 1200px; height: 300px; overflow: hidden; text-align:center;">
+			{insert name='ads' id=14}
+		</div>
+			
+		<!--#region Bullet Navigator Skin Begin -->
+        <style>
+        	.jssorb18{position:absolute}
+        	.jssorb18 div, .jssorb18 div:hover, .jssorb18 .av {
+        		position:absolute;
+        		width:24px;
+        		height:24px;
+        		text-align:center;
+        		line-height:24px;
+        		font-size:16px;
+        		background:url(images/UI/b18.png) no-repeat;
+        		overflow:hidden;
+        		cursor:pointer
+        	}
+        	.jssorb18 div{background-position:-3px -3px}
+        	.jssorb18 div:hover, .jssorb18 .av:hover{background-position:-33px -3px}
+        	.jssorb18 .av{background-position:-63px -3px}
+        	.jssorb18 .dn, .jssorb18 .dn:hover{background-position:-93px -3px}
+        	.jssorb18 .n{display:none;color:#000}
+        	.jssorb18 div:hover .n, .jssorb18 .av .n, .jssorb18 .av:hover .n, .jssorb18 .dn .n{display:block}
+        </style>
+        <!-- bullet navigator container -->
+        <div u="navigator" class="jssorb18" style="bottom:16px;right:6px;">
+			<div u="prototype">
+				<div u="numbertemplate" class="n"></div>
+			</div>
+		</div>
+        <!--#endregion Bullet Navigator Skin End -->
+        
         <!-- Trigger -->
         <script>
             jssor_main_banner_starter('main_banner_container');
@@ -245,16 +269,6 @@ $Delay: 800,  //Delay to assembly blocks
 <!--===================================================== 
 ==================== end of slide show ================== 
 ======================================================-->
-
-
-
-
-
-
-
-
-
-
 
 
 

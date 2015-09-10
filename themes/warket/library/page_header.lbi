@@ -44,64 +44,62 @@ var process_request = "{$lang.process_request}";
 		}
 	}).init();
 </script>
+
 <div class="container">
-<div id="body_mask" class="body_mask"></div>
-<div id="empty_container"></div>
-<div class="block clearfix" id="top">
-  <div class="log">
-    <div class="logbackground">
-        <ul>
-         <!--{if $navigator_list.top}-->
-         <li id="topNav" class="clearfix">
-                  <font style="color:#868485;">{* ECSHOP 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'} </font>  
-         </li>
-         <!-- {/if} -->
-         </ul>
-    </div>
-  </div>
-</div>
+	<div id="body_mask" class="body_mask"></div>
+	<div id="empty_container"></div>
+	<div class="block clearfix" id="top">
+  		<div class="log">
+    		<div class="logbackground">
+        		<ul>
+         			<!--{if $navigator_list.top}-->
+         			<li id="topNav" class="clearfix">
+						<font style="color:#868485;">{* ECSHOP 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'} </font>  
+         			</li>
+         			<!-- {/if} -->
+         		</ul>
+    		</div>
+		</div>
+	</div>
 
-
-
-<div class="block clearfix">
- <div class="banner-1">
-  <table border="0" celspacing="0" celpadding="0" style="width:100%;">
-    <tr height="25">
-        <td colspan="2">&nbsp;</td>
-      </tr>
-      <tr>
-        <td style="width:43.7%;"></td>
-        <td ><a href="../index.php" name="top"><img style="width:148px;"src="../images/logo.png" /></a></td>
-      </tr>
-  </table>
- </div>
-</div>
-<div  class="blank"></div>
-<div id="mainNav" class="clearfix">
-  <!-- {foreach name=nav_middle_list from=$navigator_list.middle  key=key item=nav}-->
-  <a href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if} {if $nav.active eq 1} class="cur"{/if}>
-    {$nav.name} 
-    {assign var=key_plus value=$smarty.foreach.nav_middle_list.iteration}
-    {assign var=na value=$navigator_list.middle.$key_plus}
-  </a>
- <!-- {/foreach} -->
-<span style="float:right;height:26px;">			   
-	  <form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()"  >
-		   <input name="keywords" type="text" id="keyword" />
-		   <input type="hidden" id="sc_ds" value="1" name="sc_ds">
-		   <input type="hidden" id="category" value="0" name="category">
-		   <input type="hidden" id="brand" value="0" name="brand">
-		   <input id="min_price" type="hidden" value="0" name="min_price">
-		   <input id="max_price" type="hidden" value="0" name="max_price">
-		   <input type="hidden" id="outstock" value="0" name="outstock">
-		   <input type="hidden" value="form" name="action">
-		   <a href="." onclick="document.getElementById('searchForm').submit();return false;"><i class="fa fa-search" style="width:20px;margin-left: -2px;"></i>&nbsp;搜索</a>
-	   </form>
-	   &nbsp;
- </span>
-
-</div>
-
+	<div class="block clearfix">
+ 		<div class="banner-1">
+  			<table border="0" celspacing="0" celpadding="0" style="width:100%;">
+    			<tr height="25">
+        			<td colspan="2">&nbsp;</td>
+      			</tr>
+      			<tr>
+        			<td style="width:43.7%;"></td>
+        			<td ><a href="../index.php" name="top"><img style="width:148px;"src="../images/logo.png" /></a></td>
+      			</tr>
+  			</table>
+ 		</div>
+	</div>
+	<div  class="blank"></div>
+	<div id="mainNav" class="clearfix">
+		<!-- {foreach name=nav_middle_list from=$navigator_list.middle  key=key item=nav}-->
+	  		<a href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if} {if $nav.active eq 1} class="cur"{/if}>
+			    {$nav.name} 
+			    {assign var=key_plus value=$smarty.foreach.nav_middle_list.iteration}
+			    {assign var=na value=$navigator_list.middle.$key_plus}
+		  	</a>
+	 	<!-- {/foreach} -->
+		<span style="float:right;height:26px;">			   
+		  	<form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()"  >
+			   	<input name="keywords" type="text" id="keyword" />
+			   	<input type="hidden" id="sc_ds" value="1" name="sc_ds">
+			   	<input type="hidden" id="category" value="0" name="category">
+			   	<input type="hidden" id="brand" value="0" name="brand">
+			   	<input id="min_price" type="hidden" value="0" name="min_price">
+			   	<input id="max_price" type="hidden" value="0" name="max_price">
+			  	<input type="hidden" id="outstock" value="0" name="outstock">
+			   	<input type="hidden" value="form" name="action">
+			   	<a href="." onclick="document.getElementById('searchForm').submit();return false;"><i class="fa fa-search" style="width:20px;margin-left: -2px;"></i>&nbsp;搜索</a>
+		   	</form>
+	   		&nbsp;
+		</span>
+	</div>
+	
 <div class="center_pop" id="addtocartdialog" style="display:none;">
                <div class="center_pop_close"><a href="javascript:void(0)" onclick="document.getElementById('addtocartdialog').style.display='none';"></a></div>
               <div class="center_pop_txt">
