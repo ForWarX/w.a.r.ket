@@ -109,9 +109,8 @@ var process_request = "{$lang.process_request}";
   			</div>
  		</div>
 	</div>
-	<div  class="blank"></div>
 	<div id="mainNav" class="clearfix">
-		<div style="margin-left:15%; width:20%; float:left; margin-top:6px;">
+		<div style="margin-left:15%; margin-right:3%; float:left; margin-top:6px;">
 			<select style="background-color: #348e44; border:0; color:white;">
 				<option>全部商品</option>
 			</select>
