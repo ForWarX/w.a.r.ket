@@ -95,7 +95,6 @@
 <!--===================================================== 
 ======================== slide show ===================== 
 ======================================================-->
-<div class="blank"></div>
 <div class="block clearfix">
 
     <script>
@@ -315,7 +314,6 @@
 
 
 
-<div class="blank"></div>
 {insert name='ads' id=15}
 <!-- {foreach name=cat_info_list from=$cat_info_list  key=key item=cat_info_list_item}-->
 

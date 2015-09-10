@@ -221,7 +221,7 @@ padding: 1px 10px 1px 6px;}
   #topNav a{color:#868485;text-decoration:none;}
   /*页面主导航*/
   #mainNav{width:100%; background-color: #348e44;}
-  #mainNav a{display:block; height:26p; float:left; line-height:26px; text-align:center;
+  #mainNav a{display:block; height:30px; float:left; line-height:30px; text-align:center;
   padding:0 15px; position:relative;
   margin-right:0px; color:#fff; text-decoration:none;font-family:"Tahoma";
   -moz-transition: all 0.5s ease-in-out;
@@ -235,8 +235,8 @@ padding: 1px 10px 1px 6px;}
   }
   #mainNav a:hover{background-color: #09440e;
   }
-  #mainNav .cur{display:block; height:26px; float:left; line-height:26px; text-align:center;
-  padding:0 15px; background-color: #00ea00; position:relative;
+  #mainNav .cur{display:block; height:30px; float:left; line-height:30px; text-align:center;
+  padding:0 15px; background-color: rgb(235,216,34); position:relative;
   margin-right:0px; color:#fff; text-decoration:none;
   }
 
