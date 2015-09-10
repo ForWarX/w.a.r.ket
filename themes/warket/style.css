@@ -30,7 +30,7 @@ font-family:'Microsoft YaHei UI','Microsoft YaHei',DengXian,SimSun,'Segoe UI',Ta
   width:100%; height:auto;
 }
 .f_l{float:left;}
-.banner-1{background:url(images/banner-background.jpg);width: 100%;height: 150px;background-size: cover;}
+.banner-1{background:url(images/UI/top-banner-bk.jpg);width: 100%;height: 150px;background-size: cover;}
 .f_r{float:right;}
 .tl{ text-align:left;}
 .tc{ text-align:center;}
@@ -236,7 +236,7 @@ padding: 1px 10px 1px 6px;}
   #mainNav a:hover{background-color: #09440e;
   }
   #mainNav .cur{display:block; height:26px; float:left; line-height:26px; text-align:center;
-  padding:0 15px; background-color: #0d5813; position:relative;
+  padding:0 15px; background-color: #00ea00; position:relative;
   margin-right:0px; color:#fff; text-decoration:none;
   }
 

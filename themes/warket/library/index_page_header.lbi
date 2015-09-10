@@ -44,61 +44,116 @@ var process_request = "{$lang.process_request}";
 		}
 	}).init();
 </script>
+
+<div id="top-container">
+	<div id="body_mask" class="body_mask"></div>
+	<div id="empty_container"></div>
+	<div class="block clearfix" id="top">
+  		<div class="log">
+    		<div class="logbackground">
+        		<ul>
+         			<!--{if $navigator_list.top}-->
+         				<li id="topNav" class="clearfix">
+                  			<font style="color:#868485;">{* ECSHOP 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'} </font>  
+         				</li>
+         			<!-- {/if} -->
+         		</ul>
+    		</div>
+  		</div>
+	</div>
+
+	<div class="block clearfix">
+ 		<div class="banner-1">
+  			<div style="width: 75%; margin-left: auto; margin-right: auto;">
+  				<div style="width: 20%; min-width: 155px; display: inline-block;">
+  					<a href="../index.php" name="top"><img style="width:148px;" src="../images/UI/logo@108.png" /></a>
+  				</div>
+  				<div style="width: 65%; display: inline-block; margin-left: auto; vertical-align: middle;">
+			  		<form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()">
+				   		<input name="keywords" type="text" id="keyword" aria-describedby="help-block"
+				   			style="background-image:url('themes/warket/images/UI/magnifier.png');
+				   				background-repeat:no-repeat;
+				   				background-position-x:-45px;
+				   				background-position-y:center;
+				   				background-size:130px;
+				   				padding-left:45px;
+				   				width:60%;
+				   				height:35px;
+				   				border:2px solid #348e44;
+				   				float:left;
+				   				font-size:large;"
+				   		/>
+				   		<button id="search-btn" onclick="document.getElementById('searchForm').submit();return false;" style="
+				   			color: white;
+				   			background-color: #348e44;
+				   			border: 0;
+				   			width: 25%;
+				   			height: 39px;
+				   			float: left;
+				   			font-size: 24px;"
+				   		>
+				   			搜索
+				   		</button>
+				   		<span style="display: inline-block; margin-top: 5px;">热点搜索：苹果 火锅料 方便面</span>
+				   		<span style="display: inline-block; float:right; margin-right:30px; margin-top: 3px;">配送至 <strong style="font-size:16px;">多伦多</strong>：满49包邮</span>
+				   		<input type="hidden" id="sc_ds" value="1" name="sc_ds">
+				   		<input type="hidden" id="category" value="0" name="category">
+				   		<input type="hidden" id="brand" value="0" name="brand">
+				   		<input type="hidden" id="min_price" value="0" name="min_price">
+				   		<input type="hidden" id="max_price" value="0" name="max_price">
+				   		<input type="hidden" id="outstock" value="0" name="outstock">
+				   		<input type="hidden" value="form" name="action">
+			   		</form>
+			   	</div>
+  			</div>
+ 		</div>
+	</div>
+	<div  class="blank"></div>
+	<div id="mainNav" class="clearfix">
+		<div style="margin-left:15%; width:20%; float:left; margin-top:3px;">
+			<select style="background-color: #348e44; border:0; color:white;">
+				<option>全部商品</option>
+			</select>
+		</div>
+		<div id="navList" style="width: 65%; max-width: 1200px; margin-left: auto; margin-right: auto;">
+	  		<!-- {foreach name=nav_middle_list from=$navigator_list.middle  key=key item=nav}-->
+	  			<a href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if} {if $nav.active eq 1} class="cur"{/if}>
+	    			{$nav.name} 
+	    			{assign var=key_plus value=$smarty.foreach.nav_middle_list.iteration}
+	    			{assign var=na value=$navigator_list.middle.$key_plus}
+	  			</a>
+	 		<!-- {/foreach} -->
+ 		</div>
+	</div>
+</div>
+<script>
+	$(function() {
+		resizeTopContainer();
+		$(window).resize(function() {
+			resizeTopContainer();
+		});
+		
+		// 网站域名不带index.php时"首页"菜单按钮不会被设置class，导致按钮背景色不会改变
+		var check = true;
+		$("#navList").each(function() {
+			if (check && $(this).attr("class") == "cur") {
+				check = false;
+			}
+		});
+		if (check) {
+			$("#navList").children(":first").attr("class", "cur");
+		}
+	});
+	
+	function resizeTopContainer() {
+		$("#top-container").width(Math.max($(window).width()-35, 1200)); // 35px is the width of cart
+		
+		var form = $("#searchForm");
+		var width = form.parent().width() - 65; // 65px是搜索框的padding
+		form.find("#keyword").width(width * 0.70);
+		form.find("#search-btn").width(width * 0.25);
+	}
+</script>
+
 <div class="container">
-<div id="body_mask" class="body_mask"></div>
-<div id="empty_container"></div>
-<div class="block clearfix" id="top">
-  <div class="log">
-    <div class="logbackground">
-        <ul>
-         <!--{if $navigator_list.top}-->
-         <li id="topNav" class="clearfix">
-                  <font style="color:#868485;">{* ECSHOP 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'} </font>  
-         </li>
-         <!-- {/if} -->
-         </ul>
-    </div>
-  </div>
-</div>
-
-
-
-<div class="block clearfix">
- <div class="banner-1">
-  <table border="0" celspacing="0" celpadding="0" style="width:100%;">
-    <tr height="25">
-        <td colspan="2">&nbsp;</td>
-      </tr>
-      <tr>
-        <td style="width:43.7%;"></td>
-        <td ><a href="../index.php" name="top"><img style="width:148px;"src="../images/logo.png" /></a></td>
-      </tr>
-  </table>
- </div>
-</div>
-<div  class="blank"></div>
-<div id="mainNav" class="clearfix">
-  <!-- {foreach name=nav_middle_list from=$navigator_list.middle  key=key item=nav}-->
-  <a href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if} {if $nav.active eq 1} class="cur"{/if}>
-    {$nav.name} 
-    {assign var=key_plus value=$smarty.foreach.nav_middle_list.iteration}
-    {assign var=na value=$navigator_list.middle.$key_plus}
-  </a>
- <!-- {/foreach} -->
-<span style="float:right;height:26px;">			   
-	  <form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()"  >
-		   <input name="keywords" type="text" id="keyword" />
-		   <input type="hidden" id="sc_ds" value="1" name="sc_ds">
-		   <input type="hidden" id="category" value="0" name="category">
-		   <input type="hidden" id="brand" value="0" name="brand">
-		   <input id="min_price" type="hidden" value="0" name="min_price">
-		   <input id="max_price" type="hidden" value="0" name="max_price">
-		   <input type="hidden" id="outstock" value="0" name="outstock">
-		   <input type="hidden" value="form" name="action">
-		   <a href="." onclick="document.getElementById('searchForm').submit();return false;"><i class="fa fa-search" style="width:20px;margin-left: -2px;"></i>&nbsp;搜索</a>
-	   </form>
-	   &nbsp;
- </span>
-
-</div>
 

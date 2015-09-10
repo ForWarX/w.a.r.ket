@@ -1,17 +1,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="Keywords" content="{$keywords}" />
-<meta name="Description" content="{$description}" />
-<!-- TemplateBeginEditable name="doctitle" -->
-<title>{$page_title}</title>
-<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
-<link rel="shortcut icon" href="favicon.ico" />
-<link rel="icon" href="animated_favicon.gif" type="image/gif" />
-<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
-{* 包含脚本文件 *}
-{insert_scripts files='common.js,shopping_flow.js'}
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="Keywords" content="{$keywords}" />
+	<meta name="Description" content="{$description}" />
+	<!-- TemplateBeginEditable name="doctitle" -->
+	<title>{$page_title}</title>
+	<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+	<link rel="shortcut icon" href="favicon.ico" />
+	<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+	<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+	{* 包含脚本文件 *}
+	{insert_scripts files='common.js,shopping_flow.js'}
 </head>
 <body>
 <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
@@ -324,235 +324,254 @@
         <!-- {/if} -->
 
         <!-- {if $step eq "checkout"} 开始订单确认界面 -->
-        <form action="flow.php" method="post" name="theForm" id="theForm" onsubmit="return checkOrderForm(this)">
-        <script type="text/javascript">
-        var flow_no_payment = "{$lang.flow_no_payment}";
-        var flow_no_shipping = "{$lang.flow_no_shipping}";
-        </script>
-        <div class="flowBox-new">
-        <h6><span>{$lang.goods_list}</span><!--{if $allow_edit_cart} --><a href="flow.php" class="f6">{$lang.modify}</a><!--{/if} --></h6>
-        <table width="99%" align="center" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd">
-            <tr>
-              <th bgcolor="#ffffff">{$lang.goods_name}</th>
-              <th bgcolor="#ffffff">{$lang.goods_attr}</th>
-
-              <th bgcolor="#ffffff">{if $gb_deposit}{$lang.deposit}{else}{$lang.shop_prices}{/if}</th>
-              <th bgcolor="#ffffff">{$lang.number}</th>
-              <th bgcolor="#ffffff">{$lang.subtotal}</th>
-            </tr>
-            <!-- {foreach from=$goods_list item=goods} -->
-            <tr>
-              <td bgcolor="#ffffff">
-              <!-- {if $goods.goods_id gt 0 && $goods.extension_code eq 'package_buy'} -->
-          <a href="javascript:void(0)" onclick="setSuitShow({$goods.goods_id})" class="f6">{$goods.goods_name}<span style="color:#FF0000;">（{$lang.remark_package}）</span></a>
-          <div id="suit_{$goods.goods_id}" style="display:none">
-              <!-- {foreach from=$goods.package_goods_list item=package_goods_list} -->
-            <a href="goods.php?id={$package_goods_list.goods_id}" target="_blank" class="f6">{$package_goods_list.goods_name}</a><br />
-              <!-- {/foreach} -->
-          </div>
-          <!-- { else } -->
-          <a href="goods.php?id={$goods.goods_id}" target="_blank" class="f6">{$goods.goods_name}</a>
-                <!-- {if $goods.parent_id > 0} -->
-                <span style="color:#FF0000">（{$lang.accessories}）</span>
-                <!-- {elseif $goods.is_gift} -->
-                <span style="color:#FF0000">（{$lang.largess}）</span>
-                <!-- {/if} -->
-          <!-- {/if} -->
-          <!-- {if $goods.is_shipping} -->(<span style="color:#FF0000">{$lang.free_goods}</span>)<!-- {/if} -->
-              </td>
-              <td bgcolor="#ffffff">{$goods.goods_attr|nl2br}</td>
-
-              <td bgcolor="#ffffff" align="left">{$goods.formated_goods_price}</td>
-              <td bgcolor="#ffffff" align="left">{$goods.goods_number}</td>
-              <td bgcolor="#ffffff" align="left">{$goods.formated_subtotal}</td>
-            </tr>
-            <!-- {/foreach} -->
-            <!-- {if !$gb_deposit} 团购且有保证金时不显示 -->
-            <tr>
-              <td bgcolor="#ffffff" colspan="7">
-              <!-- {if $discount gt 0} -->{$your_discount}<br /><!-- {/if} -->
-              {$shopping_money}<!-- {if $show_marketprice} -->，{$market_price_desc}<!--{/if}-->
-              </td>
-            </tr>
-            <!-- {/if} -->
-          </table>
-      </div>
-      <div class="blank"></div>
-      <div class="flowBox-new">
-      <h6><span>{$lang.consignee_info}</span><a href="flow.php?step=consignee" class="f6">{$lang.modify}</a></h6>
-      <table width="99%" align="center" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd">
-            <tr>
-              <td bgcolor="#ffffff">{$lang.consignee_name}:</td>
-              <td bgcolor="#ffffff">{$consignee.consignee|escape}</td>
-              <td bgcolor="#ffffff">{$lang.email_address}:</td>
-              <td bgcolor="#ffffff">{$consignee.email|escape}</td>
-            </tr>
-            <!-- {if $total.real_goods_count gt 0} -->
-            <tr>
-              <td bgcolor="#ffffff">{$lang.detailed_address}:</td>
-              <td bgcolor="#ffffff">{$consignee.address|escape} </td>
-              <td bgcolor="#ffffff">{$lang.postalcode}:</td>
-              <td bgcolor="#ffffff">{$consignee.zipcode|escape}</td>
-            </tr>
-            <!-- {/if} -->
-            <tr>
-              <td bgcolor="#ffffff">{$lang.phone}:</td>
-              <td bgcolor="#ffffff">{$consignee.tel} </td>
-              <td bgcolor="#ffffff">{$lang.backup_phone}:</td>
-              <td bgcolor="#ffffff">{$consignee.mobile|escape}</td>
-            </tr>
-             <!-- {if $total.real_goods_count gt 0} -->
-            <tr>
-              <td bgcolor="#ffffff">{$lang.sign_building}:</td>
-              <td bgcolor="#ffffff">{$consignee.sign_building|escape} </td>
-              <td bgcolor="#ffffff">{$lang.deliver_goods_time}:</td>
-              <td bgcolor="#ffffff">{$consignee.best_time|escape}</td>
-            </tr>
-            <!-- {/if} -->
-          </table>
-      </div>
-     <div class="blank"></div>
-    <!--{if $total.real_goods_count neq 0}-->
-    <div class="flowBox-new">
-    <h6><span>{$lang.shipping_method}</span></h6>
-    <table width="99%" align="center" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd" id="shippingTable">
-            <tr>
-              <th bgcolor="#ffffff" width="5%">&nbsp;</th>
-              <th bgcolor="#ffffff" width="25%">{$lang.name}</th>
-              <th bgcolor="#ffffff">{$lang.describe}</th>
-              <th bgcolor="#ffffff">&nbsp;</th>
-              <th bgcolor="#ffffff" width="15%">{$lang.fee}</th>
-              <th bgcolor="#ffffff" width="15%">{$lang.free_money}</th>
-              <th bgcolor="#ffffff" width="15%">{$lang.insure_fee}</th>
-            </tr>
-            <!-- {foreach from=$shipping_list item=shipping} 循环配送方式 -->
-            <tr>
-              <td bgcolor="#ffffff" valign="top"><input name="shipping" type="radio" value="{$shipping.shipping_id}" {if $order.shipping_id eq $shipping.shipping_id}checked="true"{/if} supportCod="{$shipping.support_cod}" insure="{$shipping.insure}" onclick="selectShipping(this)" />
-              </td>
-              <td bgcolor="#ffffff" valign="top"><strong>{$shipping.shipping_name}</strong></td>
-              <td bgcolor="#ffffff" valign="top">{$shipping.shipping_desc}</td>
-              <td bgcolor="#ffffff" valign="top">&nbsp;</td>
-              <td bgcolor="#ffffff" align="left" valign="top">{$shipping.format_shipping_fee}</td>
-              <td bgcolor="#ffffff" align="left" valign="top">{$shipping.free_money}</td>
-              <td bgcolor="#ffffff" align="left" valign="top">{if $shipping.insure neq 0}{$shipping.insure_formated}{else}{$lang.not_support_insure}{/if}</td>
-            </tr>
-            <!-- {/foreach} 循环配送方式 -->
-            <tr>
-              <td colspan="7" bgcolor="#ffffff" align="left"><label for="ECS_NEEDINSURE">
-                <input name="need_insure" id="ECS_NEEDINSURE" type="checkbox"  onclick="selectInsure(this.checked)" value="1" {if $order.need_insure}checked="true"{/if} {if $insure_disabled}disabled="true"{/if}  />
-                {$lang.need_insure} </label></td>
-            </tr>
-          </table>
-    </div>
-    <div class="blank"></div>
-	<div class="flowBox-new">
-		<h6><span>配送时间</span></h6>
-		<div class="user-tienter" id="user-tienter" style="display: block;position: relative;">
-			<div class="time-xuan01" style="margin-left:14px;_margin-left:0px;">
-				<ul>
-					<li class="tx-left02" id="select_send_time">
-						<p>2015-09-09|周三 09:00-18:00</p>
-						<input type="hidden" id="shtime" name="shtime" value="20150909">
-						<input type="hidden" id="stime" name="stime" value="0918">
-					</li>
-
-				</ul>
-				<div class="tx-left02-fix" style="width: 385px; display: none;">
-					<div class="time-color">
-						<dl class="one-color">
-							<dt class="date-t01" style="width:75px;">时间段</dt>
-							<!-- {foreach from=$shipping_time_list item=time} -->
-							<dt>{$time}<br>周一</dt>
-							<!--{/foreach}-->
-						</dl>
-						<dl>
-							<dt class="date-t01" style="width:75px;">09:00-18:00</dt>
-							<dd date="20150908" time="0918" datev="09-08|周二" timev="09:00-18:00" eventclick="false" class="">
-								<span id="20150908-0918" class="dateri-no"></span>
-							</dd>
-							<dd date="20150909" time="0918" datev="09-09|周三" timev="09:00-18:00" eventclick="true" class="">
-								<span id="20150909-0918" class="dateri-now"></span>
-							</dd>
-							<dd date="20150910" time="0918" datev="09-10|周四" timev="09:00-18:00" eventclick="true" class="">
-								<span id="20150910-0918" class="dateri-yes"></span>
-							</dd>
-							<dd date="20150911" time="0918" datev="09-11|周五" timev="09:00-18:00" eventclick="true" class="">
-								<span id="20150911-0918" class="dateri-yes"></span>
-							</dd>
-							<dd date="20150912" time="0918" datev="09-12|周六" timev="09:00-18:00" eventclick="true" class="">
-								<span id="20150912-0918" class="dateri-yes"></span>
-							</dd>
-
-						</dl>
-						<dl>
-							<dt class="date-t01" style="width:75px;">18:00-22:00</dt>
-							<dd date="20150908" time="1822" datev="09-08|周二" timev="18:00-22:00" eventclick="true" class="">
-								<span id="20150908-1822" class="dateri-yes"></span>
-							</dd>
-							<dd date="20150909" time="1822" datev="09-09|周三" timev="18:00-22:00" eventclick="true" class="">
-								<span id="20150909-1822" class="dateri-yes"></span>
-							</dd>
-							<dd date="20150910" time="1822" datev="09-10|周四" timev="18:00-22:00" eventclick="true" class="">
-								<span id="20150910-1822" class="dateri-yes"></span>
-							</dd>
-							<dd date="20150911" time="1822" datev="09-11|周五" timev="18:00-22:00" eventclick="true" class="">
-								<span id="20150911-1822" class="dateri-yes"></span>
-							</dd>
-							<dd date="20150912" time="1822" datev="09-12|周六" timev="18:00-22:00" eventclick="true" class="">
-								<span id="20150912-1822" class="dateri-yes"></span>
-							</dd>
-
-						</dl>
+			<form action="flow.php" method="post" name="theForm" id="theForm" onsubmit="return checkOrderForm(this)">
+				<script type="text/javascript">
+					var flow_no_payment = "{$lang.flow_no_payment}";
+					var flow_no_shipping = "{$lang.flow_no_shipping}";
+				</script>
+				<div class="flowBox-new">
+					<h6><span>{$lang.goods_list}</span><!--{if $allow_edit_cart} --><a href="flow.php" class="f6">{$lang.modify}</a><!--{/if} --></h6>
+					<table width="99%" align="center" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd">
+						<tr>
+							<th bgcolor="#ffffff">{$lang.goods_name}</th>
+							<th bgcolor="#ffffff">{$lang.goods_attr}</th>
+							
+							<th bgcolor="#ffffff">{if $gb_deposit}{$lang.deposit}{else}{$lang.shop_prices}{/if}</th>
+							<th bgcolor="#ffffff">{$lang.number}</th>
+							<th bgcolor="#ffffff">{$lang.subtotal}</th>
+						</tr>
+						<!-- {foreach from=$goods_list item=goods} -->
+							<tr>
+								<td bgcolor="#ffffff">
+									<!-- {if $goods.goods_id gt 0 && $goods.extension_code eq 'package_buy'} -->
+										<a href="javascript:void(0)" onclick="setSuitShow({$goods.goods_id})" class="f6">{$goods.goods_name}<span style="color:#FF0000;">（{$lang.remark_package}）</span></a>
+										<div id="suit_{$goods.goods_id}" style="display:none">
+											<!-- {foreach from=$goods.package_goods_list item=package_goods_list} -->
+												<a href="goods.php?id={$package_goods_list.goods_id}" target="_blank" class="f6">{$package_goods_list.goods_name}</a><br />
+											<!-- {/foreach} -->
+										</div>
+									<!-- { else } -->
+										<a href="goods.php?id={$goods.goods_id}" target="_blank" class="f6">{$goods.goods_name}</a>
+										<!-- {if $goods.parent_id > 0} -->
+											<span style="color:#FF0000">（{$lang.accessories}）</span>
+										<!-- {elseif $goods.is_gift} -->
+											<span style="color:#FF0000">（{$lang.largess}）</span>
+										<!-- {/if} -->
+									<!-- {/if} -->
+									<!-- {if $goods.is_shipping} -->(<span style="color:#FF0000">{$lang.free_goods}</span>)<!-- {/if} -->
+								</td>
+								<td bgcolor="#ffffff">{$goods.goods_attr|nl2br}</td>
+				
+								<td bgcolor="#ffffff" align="left">{$goods.formated_goods_price}</td>
+								<td bgcolor="#ffffff" align="left">{$goods.goods_number}</td>
+								<td bgcolor="#ffffff" align="left">{$goods.formated_subtotal}</td>
+							</tr>
+						<!-- {/foreach} -->
+						<!-- {if !$gb_deposit} 团购且有保证金时不显示 -->
+							<tr>
+								<td bgcolor="#ffffff" colspan="7">
+									<!-- {if $discount gt 0} -->{$your_discount}<br /><!-- {/if} -->
+									{$shopping_money}<!-- {if $show_marketprice} -->，{$market_price_desc}<!--{/if}-->
+								</td>
+							</tr>
+						<!-- {/if} -->
+					</table>
+				</div>
+				<div class="blank anim-tag"></div>
+				<div class="flowBox-new anim-tag">
+					<h6><span>{$lang.consignee_info}</span><a href="flow.php?step=consignee" class="f6">{$lang.modify}</a></h6>
+					<table width="99%" align="center" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd">
+						<tr>
+							<td bgcolor="#ffffff">{$lang.consignee_name}:</td>
+							<td bgcolor="#ffffff">{$consignee.consignee|escape}</td>
+							<td bgcolor="#ffffff">{$lang.email_address}:</td>
+							<td bgcolor="#ffffff">{$consignee.email|escape}</td>
+						</tr>
+						<!-- {if $total.real_goods_count gt 0} -->
+							<tr>
+								<td bgcolor="#ffffff">{$lang.detailed_address}:</td>
+								<td bgcolor="#ffffff">{$consignee.address|escape} </td>
+								<td bgcolor="#ffffff">{$lang.postalcode}:</td>
+								<td bgcolor="#ffffff">{$consignee.zipcode|escape}</td>
+							</tr>
+						<!-- {/if} -->
+						<tr>
+							<td bgcolor="#ffffff">{$lang.phone}:</td>
+							<td bgcolor="#ffffff">{$consignee.tel} </td>
+							<td bgcolor="#ffffff">{$lang.backup_phone}:</td>
+							<td bgcolor="#ffffff">{$consignee.mobile|escape}</td>
+						</tr>
+						<!-- {if $total.real_goods_count gt 0} -->
+							<tr>
+								<td bgcolor="#ffffff">{$lang.sign_building}:</td>
+								<td bgcolor="#ffffff">{$consignee.sign_building|escape} </td>
+								<td bgcolor="#ffffff">{$lang.deliver_goods_time}:</td>
+								<td bgcolor="#ffffff">{$consignee.best_time|escape}</td>
+							</tr>
+						<!-- {/if} -->
+					</table>
+				</div>
+				<div class="blank anim-tag"></div>
+				<!--{if $total.real_goods_count neq 0}-->
+					<div class="flowBox-new anim-tag">
+						<h6><span>{$lang.shipping_method}</span></h6>
+						<table width="99%" align="center" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd" id="shippingTable">
+							<tr>
+								<th bgcolor="#ffffff" width="5%">&nbsp;</th>
+								<th bgcolor="#ffffff" width="25%">{$lang.name}</th>
+								<th bgcolor="#ffffff">{$lang.describe}</th>
+								<th bgcolor="#ffffff">&nbsp;</th>
+								<th bgcolor="#ffffff" width="15%">{$lang.fee}</th>
+								<th bgcolor="#ffffff" width="15%">{$lang.free_money}</th>
+								<th bgcolor="#ffffff" width="15%">{$lang.insure_fee}</th>
+							</tr>
+							<!-- {foreach from=$shipping_list item=shipping} 循环配送方式 -->
+								<tr>
+									<td bgcolor="#ffffff" valign="top"><input name="shipping" type="radio" value="{$shipping.shipping_id}" {if $order.shipping_id eq $shipping.shipping_id}checked="true"{/if} supportCod="{$shipping.support_cod}" insure="{$shipping.insure}" onclick="selectShipping(this)" /></td>
+									<td bgcolor="#ffffff" valign="top"><strong>{$shipping.shipping_name}</strong></td>
+									<td bgcolor="#ffffff" valign="top">{$shipping.shipping_desc}</td>
+									<td bgcolor="#ffffff" valign="top">&nbsp;</td>
+									<td bgcolor="#ffffff" align="left" valign="top">{$shipping.format_shipping_fee}</td>
+									<td bgcolor="#ffffff" align="left" valign="top">{$shipping.free_money}</td>
+									<td bgcolor="#ffffff" align="left" valign="top">{if $shipping.insure neq 0}{$shipping.insure_formated}{else}{$lang.not_support_insure}{/if}</td>
+								</tr>
+							<!-- {/foreach} 循环配送方式 -->
+							<tr>
+								<td colspan="7" bgcolor="#ffffff" align="left">
+									<label for="ECS_NEEDINSURE">
+										<input name="need_insure" id="ECS_NEEDINSURE" type="checkbox"  onclick="selectInsure(this.checked)" value="1" {if $order.need_insure}checked="true"{/if} {if $insure_disabled}disabled="true"{/if}  />
+										{$lang.need_insure}
+									</label>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div class="blank anim-tag"></div>
+					<div class="flowBox-new anim-tag">
+						<h6><span>配送时间</span></h6>
+						<div class="user-tienter" id="user-tienter" style="display: block;position: relative;">
+							<div class="time-xuan01" style="margin-left:14px;_margin-left:0px;">
+								<ul>
+									<li class="tx-left02" id="select_send_time">
+										<p>2015-09-09|周三 09:00-18:00</p>
+										<input type="hidden" id="shtime" name="shtime" value="20150909">
+										<input type="hidden" id="stime" name="stime" value="0918">
+									</li>
+								</ul>
+								<div class="tx-left02-fix" style="width: 385px; display: none;">
+									<div class="time-color">
+										<dl class="one-color">
+											<dt class="date-t01" style="width:75px;">时间段</dt>
+											<!-- {foreach from=$shipping_time_list item=time} -->
+												<dt>{$time}<br>周一</dt>
+											<!--{/foreach}-->
+										</dl>
+										<dl>
+											<dt class="date-t01" style="width:75px;">09:00-18:00</dt>
+											<dd date="20150908" time="0918" datev="09-08|周二" timev="09:00-18:00" eventclick="false" class="">
+												<span id="20150908-0918" class="dateri-no"></span>
+											</dd>
+											<dd date="20150909" time="0918" datev="09-09|周三" timev="09:00-18:00" eventclick="true" class="">
+												<span id="20150909-0918" class="dateri-now"></span>
+											</dd>
+											<dd date="20150910" time="0918" datev="09-10|周四" timev="09:00-18:00" eventclick="true" class="">
+												<span id="20150910-0918" class="dateri-yes"></span>
+											</dd>
+											<dd date="20150911" time="0918" datev="09-11|周五" timev="09:00-18:00" eventclick="true" class="">
+												<span id="20150911-0918" class="dateri-yes"></span>
+											</dd>
+											<dd date="20150912" time="0918" datev="09-12|周六" timev="09:00-18:00" eventclick="true" class="">
+												<span id="20150912-0918" class="dateri-yes"></span>
+											</dd>
+										</dl>
+										<dl>
+											<dt class="date-t01" style="width:75px;">18:00-22:00</dt>
+											<dd date="20150908" time="1822" datev="09-08|周二" timev="18:00-22:00" eventclick="true" class="">
+												<span id="20150908-1822" class="dateri-yes"></span>
+											</dd>
+											<dd date="20150909" time="1822" datev="09-09|周三" timev="18:00-22:00" eventclick="true" class="">
+												<span id="20150909-1822" class="dateri-yes"></span>
+											</dd>
+											<dd date="20150910" time="1822" datev="09-10|周四" timev="18:00-22:00" eventclick="true" class="">
+												<span id="20150910-1822" class="dateri-yes"></span>
+											</dd>
+											<dd date="20150911" time="1822" datev="09-11|周五" timev="18:00-22:00" eventclick="true" class="">
+												<span id="20150911-1822" class="dateri-yes"></span>
+											</dd>
+											<dd date="20150912" time="1822" datev="09-12|周六" timev="18:00-22:00" eventclick="true" class="">
+												<span id="20150912-1822" class="dateri-yes"></span>
+											</dd>
+										</dl>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="blank anim-tag"></div>
+				<!--{else}-->
+					<input name="shipping" type="radio" value = "-1" checked="checked"  style="display:none"/>
+				<!--{/if}-->
+				<!--{if $is_exchange_goods neq 1 || $total.real_goods_count neq 0}-->
+					<div class="flowBox-new anim-tag">
+						<h6><span>{$lang.payment_method}</span></h6>
+						<table width="99%" align="center" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd" id="paymentTable">
+							<tr>
+								<th width="5%" bgcolor="#ffffff">&nbsp;</th>
+								<th width="20%" bgcolor="#ffffff">{$lang.name}</th>
+								<th bgcolor="#ffffff">{$lang.describe}</th>
+								<th bgcolor="#ffffff" width="15%">{$lang.pay_fee}</th>
+							</tr>
+							<!-- {foreach from=$payment_list item=payment} --><!-- 循环支付方式 -->	
+								<tr>
+									<td valign="top" bgcolor="#ffffff"><input type="radio" name="payment" value="{$payment.pay_id}" {if $order.pay_id eq $payment.pay_id}checked{/if} isCod="{$payment.is_cod}" onclick="selectPayment(this)" {if $cod_disabled and $payment.is_cod eq "1"}disabled="true"{/if}/></td>
+									<td valign="top" bgcolor="#ffffff"><strong>{$payment.pay_name}</strong></td>
+									<td valign="top" bgcolor="#ffffff">{$payment.pay_desc}</td>
+									<td align="right" bgcolor="#ffffff" valign="top">{$payment.format_pay_fee}</td>
+								</tr>
+							<!-- {/foreach} 循环支付方式 -->
+						</table>
+					</div>
+				<!--{else}-->
+					<input name="payment" type="radio" value = "-1" checked="checked"  style="display:none"/>
+				<!--{/if}-->
+				<div class="blank anim-tag"></div>
+				
+				<div class="blank anim-tag"></div>
+				<div class="flowBox-new anim-tag">
+					<h6><span>{$lang.fee_total}</span></h6>
+					<!-- #BeginLibraryItem "/Library/order_total.lbi" --><!-- #EndLibraryItem -->
+					<div align="center" style="margin:8px auto;">
+						<input type="image" src="images/bnt_subOrder.gif" />
+						<input type="hidden" name="step" value="done" />
 					</div>
 				</div>
-			</div>
-		</div>
-	</div>
-	<div class="blank"></div>
-        <!--{else}-->
-        <input name = "shipping" type="radio" value = "-1" checked="checked"  style="display:none"/>
-        <!--{/if}-->
-    <!--{if $is_exchange_goods neq 1 || $total.real_goods_count neq 0}-->
-    <div class="flowBox-new">
-    <h6><span>{$lang.payment_method}</span></h6>
-    <table width="99%" align="center" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd" id="paymentTable">
-            <tr>
-              <th width="5%" bgcolor="#ffffff">&nbsp;</th>
-              <th width="20%" bgcolor="#ffffff">{$lang.name}</th>
-              <th bgcolor="#ffffff">{$lang.describe}</th>
-              <th bgcolor="#ffffff" width="15%">{$lang.pay_fee}</th>
-            </tr>
-            <!-- {foreach from=$payment_list item=payment} -->
-            <!-- 循环支付方式 -->
-            <tr>
-              <td valign="top" bgcolor="#ffffff"><input type="radio" name="payment" value="{$payment.pay_id}" {if $order.pay_id eq $payment.pay_id}checked{/if} isCod="{$payment.is_cod}" onclick="selectPayment(this)" {if $cod_disabled and $payment.is_cod eq "1"}disabled="true"{/if}/></td>
-              <td valign="top" bgcolor="#ffffff"><strong>{$payment.pay_name}</strong></td>
-              <td valign="top" bgcolor="#ffffff">{$payment.pay_desc}</td>
-              <td align="right" bgcolor="#ffffff" valign="top">{$payment.format_pay_fee}</td>
-            </tr>
-            <!-- {/foreach} 循环支付方式 -->
-          </table>
-    </div>
-    <!--{else}-->
-        <input name = "payment" type="radio" value = "-1" checked="checked"  style="display:none"/>
-    <!--{/if}-->
-    <div class="blank"></div>
-
-
-         
-
-
-    <div class="blank"></div>
-    <div class="flowBox-new">
-    <h6><span>{$lang.fee_total}</span></h6>
-          <!-- #BeginLibraryItem "/Library/order_total.lbi" --><!-- #EndLibraryItem -->
-           <div align="center" style="margin:8px auto;">
-            <input type="image" src="images/bnt_subOrder.gif" />
-            <input type="hidden" name="step" value="done" />
-            </div>
-    </div>
-    </form>
-        <!-- {/if} -->
+				
+				<div class="anim-btn" style="width: 100%; text-align: center; margin-top: 10px;">
+					<button onclick="return false;" style="width:100px; height:30px; background-color: #348e44; color: white; border: 0;">确认</button>
+				</div>
+			</form>
+			<script><!-- 表单里的动画 -->
+				ck_form = $("#theForm");
+				ck_form.find(".anim-tag").hide();
+				ck_block_cur = ck_form.find(".flowBox-new:first");
+				
+				// 按钮事件
+				ck_form.find(".anim-btn").find("button").on("click", function() {
+					while(!ck_block_cur.hasClass("anim-btn")) {
+						ck_block_cur = ck_block_cur.next();
+						if (ck_block_cur.hasClass("flowBox-new")) {
+							ck_block_cur.show(500);
+							if (ck_block_cur.next().hasClass("anim-btn")) {
+								ck_block_cur.next().hide();
+							}
+							break;
+						} else if (ck_block_cur.hasClass("blank")) {
+							ck_block_cur.show();
+						}
+					}
+				});
+			</script><!-- 表单里的动画结束 -->
+        <!-- {/if} --><!-- 订单确认界面结束 -->
 
         <!-- {if $step eq "done"} -->
         <!-- 订单提交成功 -->
