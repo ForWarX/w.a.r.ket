@@ -452,9 +452,9 @@
 							<div class="time-xuan01" style="margin-left:14px;_margin-left:0px;">
 								<ul>
 									<li class="tx-left02" id="select_send_time">
-										<p>{$shipping_time_list.0.year}-{$shipping_time_list.0.mon}-{$shipping_time_list.0.day}|{$shipping_time_list.0.weekday} 18:00-22:00</p>
+										<p>{$shipping_time_list.0.year}-{$shipping_time_list.0.mon}-{$shipping_time_list.0.day}|{$shipping_time_list.0.weekday} {$shipping_time_period.0.from}:00-{$shipping_time_period.0.to}:00</p>
 										<input type="hidden" id="shtime" name="shtime" value="{$shipping_time_list.0.year}{$shipping_time_list.0.mon}{$shipping_time_list.0.day}">
-										<input type="hidden" id="stime" name="stime" value="1822">
+										<input type="hidden" id="stime" name="stime" value="{$shipping_time_period.0.from}{$shipping_time_period.0.to}">
 									</li>
 								</ul>
 								<div class="tx-left02-fix" style="width: 385px; display: none;">
@@ -485,14 +485,16 @@
 											</dd>
 										</dl>
 										别删除，这段可作为参考结束 -->
-										<dl>
-											<dt class="date-t01" style="width:75px;">18:00-22:00</dt>
-											<!--{foreach from=$shipping_time_list item=time}-->
-												<dd date="{$time.year}{$time.mon}{$time.day}" time="1822" datev="{$time.mon}-{$time.day}|{$time.weekday}" timev="18:00-22:00" eventclick="true" class="">
-													<span id="{$time.year}{$time.mon}{$time.day}-1822" class="{if $shipping_time_list.0.day eq $time.day}dateri-now{else}dateri-yes{/if}"></span>
-												</dd>
-											<!--{/foreach}-->
-										</dl>
+										<!--{foreach from=$shipping_time_period item=period}-->
+											<dl>
+												<dt class="date-t01" style="width:75px;">{$period.from}:00-{$period.to}:00</dt>
+												<!--{foreach from=$shipping_time_list item=time}-->
+													<dd date="{$time.year}{$time.mon}{$time.day}" time="{$period.from}{$period.to}" datev="{$time.mon}-{$time.day}|{$time.weekday}" timev="{$period.from}:00-{$period.to}:00" eventclick="true" class="">
+														<span id="{$time.year}{$time.mon}{$time.day}-{$period.from}{$period.to}" class="{if $shipping_time_period.0.from eq $period.from and $shipping_time_list.0.day eq $time.day}dateri-now{else}dateri-yes{/if}"></span>
+													</dd>
+												<!--{/foreach}-->
+											</dl>
+										<!--{/foreach}-->
 									</div>
 								</div>
 							</div>

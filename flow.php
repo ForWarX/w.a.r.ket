@@ -1057,6 +1057,13 @@ elseif ($_REQUEST['step'] == 'checkout')
 		$i++;
 	}
 	$smarty->assign('shipping_time_list',   $ar);
+	// 配送时间区段
+	$ar_period = array();
+	$ar_period[] = array("from" => "18", "to" => "19");
+	$ar_period[] = array("from" => "19", "to" => "20");
+	$ar_period[] = array("from" => "20", "to" => "21");
+	$ar_period[] = array("from" => "21", "to" => "22");
+	$smarty->assign('shipping_time_period', $ar_period);
 	
 	// 查看购物车中是否全为免运费商品，若是则把运费赋为零
     $sql = 'SELECT count(*) FROM ' . $ecs->table('cart') . " WHERE `session_id` = '" . SESS_ID. "' AND `extension_code` != 'package_buy' AND `is_shipping` = 0";
