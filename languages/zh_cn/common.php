@@ -329,7 +329,7 @@ $_LANG['oos'][OOS_CONSULT] = '与店主协商';
 
 /* 评论部分 */
 $_LANG['username'] = '用户名';
-$_LANG['email'] = '电子邮件地址';
+$_LANG['email'] = '邮箱';
 $_LANG['comment_rank'] = '评价等级';
 $_LANG['comment_content'] = '评论内容';
 $_LANG['submit_comment'] = '提交评论';
@@ -475,7 +475,7 @@ $_LANG['notice_eg_integral'] = '积分商城商品需要消耗积分：';
 $_LANG['eg_error_number'] = '对不起，该商品库存不足，现在不能兑换！';
 
 /* 会员登录注册 */
-$_LANG['member_name'] = '会员';
+$_LANG['member_name'] = '用户名';
 $_LANG['password'] = '密码';
 $_LANG['confirm_password'] = '确认密码';
 $_LANG['sign_up'] = '注册新会员';

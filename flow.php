@@ -727,7 +727,12 @@ elseif ($_REQUEST['step'] == 'login')
                     show_message($_LANG['invalid_captcha']);
                 }
             }
-
+			if(is_email($username))
+			{
+			$sql ="select user_name from ".$ecs->table('users')." where email='".$username."'";
+			$username_e = $db->getOne($sql);
+			if($username_e) $username=$username_e;
+			}
             if ($user->login($_POST['username'], $_POST['password'],isset($_POST['remember'])))
             {
                 update_user_info();  //更新用户信息
