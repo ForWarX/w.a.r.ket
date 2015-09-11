@@ -728,7 +728,6 @@
 					    <li class="qq_ico"><a href="user.php?act=oath&type=qq&callblock=flow.php?step=checkout"><span class="arial">QQ</span>登录</a></li>
                         <li class="sina_ico"><a href="user.php?act=oath&type=weibo&callblock=flow.php?step=checkout">新浪微博登录</a></li>
                         <li class="alipay_ico"><a href="user.php?act=oath&type=alipay&callblock=flow.php?step=checkout">支付宝登录</a></li>
-						<li class="taobao_ico"><a href="user.php?act=oath&type=taobao&callblock=flow.php?step=checkout">淘宝登录</a></li>
                     </ul>
                 </div>
 		 </td></tr>
