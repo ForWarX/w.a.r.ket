@@ -119,7 +119,7 @@ class fedex
      */
     function calculate($goods_weight, $goods_amount, $goods_number)
     {
-		if ($goods_amount < 50){
+		if ($goods_amount < 49){
 			return 10;
 		}
 		else
