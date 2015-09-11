@@ -2020,7 +2020,11 @@ elseif ($_REQUEST['step'] == 'done')
     
     /* 配送时间 */
     if (isset($_POST['shtime']) && isset($_POST['stime'])) {
-   		$best_time = compile_str($_POST['shtime'] . '|' . $_POST['stime']);
+    	$stime = explode("-", $_POST['stime']);
+    	$stime[0] .= ":00";
+    	$stime[1] .= ":00";
+    	$stime = implode("-", $stime);
+   		$best_time = compile_str($_POST['shtime'] . ' ' . $stime);
    		$order['best_time'] = $best_time;
     }
 
