@@ -135,7 +135,7 @@ var process_request = "{$lang.process_request}";
 		
 		// 网站域名不带index.php时"首页"菜单按钮不会被设置class，导致按钮背景色不会改变
 		var check = true;
-		$("#navList").each(function() {
+		$("#navList").children().each(function() {
 			if (check && $(this).attr("class") == "cur") {
 				check = false;
 			}
