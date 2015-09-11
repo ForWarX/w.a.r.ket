@@ -27,7 +27,7 @@
             <td width="85%">
 			  <div class="input-group input-group">
 			  <span class="input-group-addon" id="sizing-addon2"><i class="glyphicon glyphicon-user" style="rgba(0,0,0, .7)"></i></span>
-			  <input name="username" id="username_login" type="text" class="form-control" placeholder="{$_LANG.member_name} / {$_LANG.email}" aria-describedby="sizing-addon2">
+			  <input name="username" id="username_login" type="text" class="form-control" placeholder="{$_LANG.username} / {$_LANG.email}" aria-describedby="sizing-addon2">
 			  </div>
 			</td>
 		  </tr>
