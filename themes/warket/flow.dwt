@@ -297,31 +297,30 @@
   <!-- {/if} -->
 
 
-        <!-- {if $step eq "consignee"} -->
-        <!-- 开始收货人信息填写界面 -->
-        {insert_scripts files='region.js,utils.js'}
-        <script type="text/javascript">
-          region.isAdmin = false;
-          {foreach from=$lang.flow_js item=item key=key}
-          var {$key} = "{$item}";
-          {/foreach}
-
-          {literal}
-          onload = function() {
-            if (!document.all)
-            {
-              document.forms['theForm'].reset();
-            }
-          }
-          {/literal}
-        </script>
-        <!-- 如果有收货地址，循环显示用户的收获地址 -->
-        <!-- {foreach from=$consignee_list item=consignee key=sn} -->
-        <form action="flow.php" method="POST" name="theForm" id="theForm" onsubmit="return checkConsignee(this)">
-        <!-- #BeginLibraryItem "/Library/consignee.lbi" --><!-- #EndLibraryItem -->
-        </form>
-        <!-- {/foreach} -->
-        <!-- {/if} -->
+		<!-- {if $step eq "consignee"} --><!-- 开始收货人信息填写界面 -->
+			{insert_scripts files='region.js,utils.js'}
+			<script type="text/javascript">
+				region.isAdmin = false;
+				{foreach from=$lang.flow_js item=item key=key}
+					var {$key} = "{$item}";
+				{/foreach}
+				
+				{literal}
+				onload = function() {
+					if (!document.all)
+					{
+						document.forms['theForm'].reset();
+					}
+				}
+				{/literal}
+			</script>
+			<!-- 如果有收货地址，循环显示用户的收获地址 -->
+			<!-- {foreach from=$consignee_list item=consignee key=sn} -->
+				<form action="flow.php" method="POST" name="theForm" id="theForm" onsubmit="return checkConsignee(this)">
+					<!-- #BeginLibraryItem "/Library/consignee.lbi" --><!-- #EndLibraryItem -->
+				</form>
+			<!-- {/foreach} -->
+		<!-- {/if} --><!-- 收货人信息填写界面结束 -->
 
         <!-- {if $step eq "checkout"} 开始订单确认界面 -->
 			<form action="flow.php" method="post" name="theForm" id="theForm" onsubmit="return checkOrderForm(this)">
@@ -405,8 +404,8 @@
 							<tr>
 								<td bgcolor="#ffffff">{$lang.sign_building}:</td>
 								<td bgcolor="#ffffff">{$consignee.sign_building|escape} </td>
-								<td bgcolor="#ffffff">{$lang.deliver_goods_time}:</td>
-								<td bgcolor="#ffffff">{$consignee.best_time|escape}</td>
+								<!--<td bgcolor="#ffffff">{$lang.deliver_goods_time}:</td>-->
+								<!--<td bgcolor="#ffffff">{$consignee.best_time|escape}</td>-->
 							</tr>
 						<!-- {/if} -->
 					</table>
@@ -453,9 +452,9 @@
 							<div class="time-xuan01" style="margin-left:14px;_margin-left:0px;">
 								<ul>
 									<li class="tx-left02" id="select_send_time">
-										<p>2015-09-09|周三 09:00-18:00</p>
-										<input type="hidden" id="shtime" name="shtime" value="20150909">
-										<input type="hidden" id="stime" name="stime" value="0918">
+										<p>{$shipping_time_list.0.year}-{$shipping_time_list.0.mon}-{$shipping_time_list.0.day}|{$shipping_time_list.0.weekday} 18:00-22:00</p>
+										<input type="hidden" id="shtime" name="shtime" value="{$shipping_time_list.0.year}{$shipping_time_list.0.mon}{$shipping_time_list.0.day}">
+										<input type="hidden" id="stime" name="stime" value="1822">
 									</li>
 								</ul>
 								<div class="tx-left02-fix" style="width: 385px; display: none;">
@@ -463,9 +462,10 @@
 										<dl class="one-color">
 											<dt class="date-t01" style="width:75px;">时间段</dt>
 											<!-- {foreach from=$shipping_time_list item=time} -->
-												<dt>{$time}<br>周一</dt>
+												<dt>{$time.mon}-{$time.day}<br>{$time.weekday}</dt>
 											<!--{/foreach}-->
 										</dl>
+										<!-- 别删除，这段可作为参考
 										<dl>
 											<dt class="date-t01" style="width:75px;">09:00-18:00</dt>
 											<dd date="20150908" time="0918" datev="09-08|周二" timev="09:00-18:00" eventclick="false" class="">
@@ -484,23 +484,14 @@
 												<span id="20150912-0918" class="dateri-yes"></span>
 											</dd>
 										</dl>
+										别删除，这段可作为参考结束 -->
 										<dl>
 											<dt class="date-t01" style="width:75px;">18:00-22:00</dt>
-											<dd date="20150908" time="1822" datev="09-08|周二" timev="18:00-22:00" eventclick="true" class="">
-												<span id="20150908-1822" class="dateri-yes"></span>
-											</dd>
-											<dd date="20150909" time="1822" datev="09-09|周三" timev="18:00-22:00" eventclick="true" class="">
-												<span id="20150909-1822" class="dateri-yes"></span>
-											</dd>
-											<dd date="20150910" time="1822" datev="09-10|周四" timev="18:00-22:00" eventclick="true" class="">
-												<span id="20150910-1822" class="dateri-yes"></span>
-											</dd>
-											<dd date="20150911" time="1822" datev="09-11|周五" timev="18:00-22:00" eventclick="true" class="">
-												<span id="20150911-1822" class="dateri-yes"></span>
-											</dd>
-											<dd date="20150912" time="1822" datev="09-12|周六" timev="18:00-22:00" eventclick="true" class="">
-												<span id="20150912-1822" class="dateri-yes"></span>
-											</dd>
+											<!--{foreach from=$shipping_time_list item=time}-->
+												<dd date="{$time.year}{$time.mon}{$time.day}" time="1822" datev="{$time.mon}-{$time.day}|{$time.weekday}" timev="18:00-22:00" eventclick="true" class="">
+													<span id="{$time.year}{$time.mon}{$time.day}-1822" class="{if $shipping_time_list.0.day eq $time.day}dateri-now{else}dateri-yes{/if}"></span>
+												</dd>
+											<!--{/foreach}-->
 										</dl>
 									</div>
 								</div>

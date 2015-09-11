@@ -1027,27 +1027,34 @@ elseif ($_REQUEST['step'] == 'checkout')
 
     /*取得配送时间*/
 	include_once('includes/lib_time.php');
-	//var_dump(local_getdate(gmtime()));
+	$date_str = array("周一", "周二", "周三", "周四", "周五", "周六", "周日");
 	$date_info = local_getdate(gmtime());
-	if ($date_info['hours'] >= 15 ){
-		//print("1");
-		$ar = array();
+	$date_cur = (int)$date_info['wday'] - 1; // 当前星期
+	$ar = array();
+	if ($date_info['hours'] >= 15 ) {
+		// 时间晚于3pm，最早配送时间从第二天开始
 		$i = 1;
-		while($i <= 5){
-			$timestamp = strtotime('+'.$i.' days', $date_info[0]);
-			$d_i = local_getdate($timestamp);
-			$s_m = "";
-			$s_md = "";
-			if (strlen($d_i["mon"])<2){
-				$s_m = "0";
-			}
-			if (strlen($d_i["mday"])<2){
-				$s_md = "0";
-			}
-			array_push($ar,$s_m . $d_i["mon"]."-".$s_md.$d_i["mday"]);
-			$i ++;
+		$max_day = 5;
+		$date_cur = ($date_cur+1)%7;
+	} else {
+		// 时间早于3pm，最早配送时间为当天
+		$i = 0;
+		$max_day = 4;
+	}
+	while($i <= $max_day){
+		$timestamp = strtotime('+'.$i.' days', $date_info[0]);
+		$d_i = local_getdate($timestamp);
+		$s_m = "";
+		$s_md = "";
+		if (strlen($d_i["mon"])<2){
+			$s_m = "0";
 		}
-		//var_dump($ar);
+		if (strlen($d_i["mday"])<2){
+			$s_md = "0";
+		}
+		array_push($ar,array('year' => $date_info['year'], 'mon' => $s_m . $d_i["mon"], 'day' => $s_md.$d_i["mday"], 'weekday' => $date_str[$date_cur]));
+		$date_cur = ($date_cur+1)%7;
+		$i++;
 	}
 	$smarty->assign('shipping_time_list',   $ar);
 	
@@ -1912,7 +1919,7 @@ elseif ($_REQUEST['step'] == 'done')
         'shipping_status' => SS_UNSHIPPED,
         'pay_status'      => PS_UNPAYED,
         'agency_id'       => get_agency_by_regions(array($consignee['country'], $consignee['province'], $consignee['city'], $consignee['district']))
-        );
+    );
 
     /* 扩展信息 */
     if (isset($_SESSION['flow_type']) && intval($_SESSION['flow_type']) != CART_GENERAL_GOODS)
@@ -2002,6 +2009,12 @@ elseif ($_REQUEST['step'] == 'done')
     foreach ($consignee as $key => $value)
     {
         $order[$key] = addslashes($value);
+    }
+    
+    /* 配送时间 */
+    if (isset($_POST['shtime']) && isset($_POST['stime'])) {
+   		$best_time = compile_str($_POST['shtime'] . '|' . $_POST['stime']);
+   		$order['best_time'] = $best_time;
     }
 
    /* 判断是不是实体商品 */

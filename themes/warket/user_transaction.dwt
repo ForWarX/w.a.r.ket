@@ -841,8 +841,8 @@
                 <tr>
                   <td align="right" bgcolor="#ffffff">{$lang.sign_building}：</td>
                   <td align="left" bgcolor="#ffffff"><input name="sign_building" type="text" class="inputBg" id="sign_building_{$sn}" value="{$consignee.sign_building|escape}" /></td>
-                  <td align="right" bgcolor="#ffffff">{$lang.deliver_goods_time}：</td>
-                  <td align="left" bgcolor="#ffffff"><input name="best_time" type="text"  class="inputBg" id="best_time_{$sn}" value="{$consignee.best_time|escape}" /></td>
+                  <!--<td align="right" bgcolor="#ffffff">{$lang.deliver_goods_time}：</td>-->
+                  <!--<td align="left" bgcolor="#ffffff"><input name="best_time" type="text"  class="inputBg" id="best_time_{$sn}" value="{$consignee.best_time|escape}" /></td>-->
                 </tr>
                 <tr>
                   <td align="right" bgcolor="#ffffff">&nbsp;</td>

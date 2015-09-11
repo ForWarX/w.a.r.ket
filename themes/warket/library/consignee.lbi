@@ -76,11 +76,11 @@
   <tr height="45">
     <td class="txt_r">{$lang.sign_building}&nbsp;&nbsp;</td>
     <td bgcolor="#ffffff"><input name="sign_building" type="text" class="ipt"  id="sign_building_{$sn}" value="{$consignee.sign_building|escape}" /></td>
-    </tr>
-    <tr height="45">
+  </tr>
+  <!--<tr height="45">
     <td class="txt_r">{$lang.deliver_goods_time}&nbsp;&nbsp;</td>
     <td bgcolor="#ffffff"><input name="best_time" type="text"  class="ipt" id="best_time_{$sn}" value="{$consignee.best_time|escape}" /></td>
-  </tr>
+  </tr>-->
   <!-- {/if} -->
   <tr  >
     <td colspan="4" align="center" bgcolor="#ffffff">
