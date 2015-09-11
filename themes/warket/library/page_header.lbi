@@ -64,8 +64,8 @@ var process_request = "{$lang.process_request}";
 
 	<div class="block clearfix">
  		<div class="banner-1">
-  			<div style="width: 75%; margin-left: auto; margin-right: auto;">
-  				<div style="width: 20%; min-width: 155px; display: inline-block; margin-right: 5%;">
+  			<div style="width: 70%; max-width: 1200px; margin-left: auto; margin-right: auto;">
+  				<div style="width: 20%; min-width: 155px; display: inline-block; margin-right: 14%;">
   					<a href="../index.php" name="top"><img style="width:148px;" src="../images/UI/logo@108.png" /></a>
   				</div>
   				<div style="width: 65%; display: inline-block; margin-left: auto; vertical-align: middle;">
@@ -96,7 +96,7 @@ var process_request = "{$lang.process_request}";
 				   			搜索
 				   		</button>
 				   		<span style="display: inline-block; margin-top: 5px;">热点搜索：苹果 火锅料 方便面</span>
-				   		<span style="display: inline-block; float:right; margin-right:7%; margin-top: 3px;">配送至 <strong style="font-size:16px;">多伦多</strong>：满49包邮</span>
+				   		<span style="display: inline-block; float:right; margin-right:15px; margin-top: 3px;">配送至 <strong style="font-size:16px;">多伦多</strong>：满49包邮</span>
 				   		<input type="hidden" id="sc_ds" value="1" name="sc_ds">
 				   		<input type="hidden" id="category" value="0" name="category">
 				   		<input type="hidden" id="brand" value="0" name="brand">
@@ -110,20 +110,22 @@ var process_request = "{$lang.process_request}";
  		</div>
 	</div>
 	<div id="mainNav" class="clearfix">
-		<div style="margin-left:15%; margin-right:3%; float:left; margin-top:6px;">
-			<select style="background-color: #348e44; border:0; color:white;">
-				<option>全部商品</option>
-			</select>
-		</div>
-		<div id="navList" style="width: 65%; max-width: 1200px; margin-left: auto; margin-right: auto;">
-	  		<!-- {foreach name=nav_middle_list from=$navigator_list.middle  key=key item=nav}-->
-	  			<a href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if} {if $nav.active eq 1} class="cur"{/if}>
-	    			{$nav.name} 
-	    			{assign var=key_plus value=$smarty.foreach.nav_middle_list.iteration}
-	    			{assign var=na value=$navigator_list.middle.$key_plus}
-	  			</a>
-	 		<!-- {/foreach} -->
- 		</div>
+		<div style="width:100%; max-width:1200px; margin:0 auto;">
+			<div style="margin-left:15%; margin-right:3%; float:left; margin-top:6px;">
+				<select style="background-color: #348e44; border:0; color:white;">
+					<option>全部商品</option>
+				</select>
+			</div>
+			<div id="navList" style="width: 65%; max-width: 1200px; margin-left: auto; margin-right: auto;">
+		  		<!-- {foreach name=nav_middle_list from=$navigator_list.middle  key=key item=nav}-->
+		  			<a href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if} {if $nav.active eq 1} class="cur"{/if}>
+		    			{$nav.name} 
+		    			{assign var=key_plus value=$smarty.foreach.nav_middle_list.iteration}
+		    			{assign var=na value=$navigator_list.middle.$key_plus}
+		  			</a>
+		 		<!-- {/foreach} -->
+	 		</div>
+	 	</div>
 	</div>
 </div>
 <script>
@@ -150,7 +152,7 @@ var process_request = "{$lang.process_request}";
 		
 		var form = $("#searchForm");
 		var width = form.parent().width() - 65; // 65px是搜索框的padding
-		form.find("#keyword").width(width * 0.70);
+		form.find("#keyword").width(width * 0.75);
 		form.find("#search-btn").width(width * 0.25);
 	}
 </script>
