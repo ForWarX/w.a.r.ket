@@ -1021,9 +1021,9 @@ box-shadow: 0px 0px 5px 2px rgba(168,168,168,.8);}
 .helpTitBg dl{ width:20%;}
 .helpTitBg dl{float:left;}
 .helpTitBg dt{ width:auto; height:25px; line-height:25px;   text-align:left;
-color:#f23622; margin:0 0 0.6em; font-weight:800;}
+color:#348E44; margin:0 0 0.6em; font-weight:normal !important;}
 .helpTitBg dt a{font-family:"微软雅黑";font-size: 1.5em;font-weight: 500; color:#000000}
-.helpTitBg dt {font-size: 1.5em;text-decoration:none;}
+.helpTitBg dt {font-size: 1.3em;text-decoration:none;}
 .helpTitBg dt img{ vertical-align:middle}
 .helpTitBg dd a{color:#333; display:block; text-decoration:none !important; line-height:24px;text-align:left;}
 .helpTitBg dd a:hover{color:#361F5B;}

@@ -45,6 +45,7 @@
 </div>
 
 <!--{if $helps}-->
+<div class="blank"></div>
 <div class="block">
    <div class="helpTitBg clearfix">
    
