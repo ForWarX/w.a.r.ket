@@ -2252,8 +2252,7 @@ elseif ($_REQUEST['step'] == 'done')
         $smarty->assign('shop_name', $_CFG['shop_name']);
         $smarty->assign('send_date', date($_CFG['time_format']));
         $content = $smarty->fetch('str:' . $tpl['template_content']);
-        $res = send_mail($_CFG['shop_name'], $consignee['email'], $tpl['template_subject'], $content, $tpl['is_html']);
-        showr($res);
+        send_mail($_CFG['shop_name'], $consignee['email'], $tpl['template_subject'], $content, $tpl['is_html']);
     }
 
     /* 如果需要，发短信 */
