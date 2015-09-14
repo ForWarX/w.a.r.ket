@@ -54,7 +54,7 @@ var process_request = "{$lang.process_request}";
         		<ul>
          			<!--{if $navigator_list.top}-->
          				<li id="topNav" class="clearfix">
-                  			<font style="color:#868485;">{* ECSHOP 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'} </font>  
+                  			<font style="color:#868485; margin-right:35px;">{* ECSHOP 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'} </font>  
          				</li>
          			<!-- {/if} -->
          		</ul>
@@ -64,7 +64,7 @@ var process_request = "{$lang.process_request}";
 
 	<div class="block clearfix">
  		<div class="banner-1">
-  			<div style="width: 70%; max-width: 1200px; margin-left: auto; margin-right: auto;">
+  			<div style="width: 1200px; height: 150px; margin-left: auto; margin-right: auto;">
   				<div style="width: 20%; min-width: 155px; display: inline-block; margin-right: 14%;">
   					<a href="../index.php" name="top"><img style="width:148px;" src="../images/UI/logo@108.png" /></a>
   				</div>
@@ -76,7 +76,7 @@ var process_request = "{$lang.process_request}";
 				   				background-position:-45px center;
 				   				background-size:130px;
 				   				padding-left:45px;
-				   				width:60%;
+				   				width:75%;
 				   				height:35px;
 				   				border:2px solid #348e44;
 				   				float:left;
@@ -96,7 +96,7 @@ var process_request = "{$lang.process_request}";
 				   			搜索
 				   		</button>
 				   		<span style="display: inline-block; margin-top: 5px;">热点搜索：苹果 火锅料 方便面</span>
-				   		<span style="display: inline-block; float:right; margin-right:15px; margin-top: 3px;">配送至 <strong style="font-size:16px;">多伦多</strong>：满49包邮</span>
+				   		<span style="display: inline-block; float:right; margin-top: 3px;">配送至 <strong style="font-size:16px;">多伦多</strong>：满49包邮</span>
 				   		<input type="hidden" id="sc_ds" value="1" name="sc_ds">
 				   		<input type="hidden" id="category" value="0" name="category">
 				   		<input type="hidden" id="brand" value="0" name="brand">
@@ -148,10 +148,8 @@ var process_request = "{$lang.process_request}";
 	});
 	
 	function resizeTopContainer() {
-		$("#top-container").width(Math.max($(window).width()-35, 1200)); // 35px is the width of cart
-		
 		var form = $("#searchForm");
-		var width = form.parent().width() - 65; // 65px是搜索框的padding
+		var width = form.parent().width() - 49; // 49px是搜索框的padding(45) + border(2) + 2
 		form.find("#keyword").width(width * 0.75);
 		form.find("#search-btn").width(width * 0.25);
 	}
