@@ -1016,14 +1016,18 @@ box-shadow: 0px 0px 5px 2px rgba(168,168,168,.8);}
 }
 			
    /*帮助*/
-   .helpTitBg{background:url(images/helpTitBg.gif) repeat-x left top; text-align:left; border:1px solid #c5e4ff; background-color:#fff;
-   padding:0 0 10px 15px;
-   }
-   .helpTitBg dl{float:left; margin-right:30px; _margin-right:20px; _width:130px;}
-   .helpTitBg dt{background:url(images/bg.gif) no-repeat 0px -570px;width:auto; height:33px; line-height:33px; text-align:left;
-   font-weight:bold; color:#56a5ee; padding-left:12px; margin-bottom:8px;}
-     .helpTitBg dt a{font-weight:bold; color:#56a5ee; text-decoration:none;}
-   .helpTitBg dd a{color:#006acd; text-decoration:none; background:url(images/bg.gif) no-repeat 0px -170px; padding:0px 0px 0px 10px;}
+   .helpTitBg{ width:100%; margin: 0 auto 1.02041% 30px;}
+.helpTitBg{ overflow:hidden; float:left; clear:both}
+.helpTitBg dl{ width:20%;}
+.helpTitBg dl{float:left;}
+.helpTitBg dt{ width:auto; height:25px; line-height:25px;   text-align:left;
+color:#348E44; margin:0 0 0.6em; font-weight:normal !important;}
+.helpTitBg dt a{font-family:"微软雅黑";font-size: 1.5em;font-weight: 500; color:#000000}
+.helpTitBg dt {font-size: 1.3em;text-decoration:none;}
+.helpTitBg dt img{ vertical-align:middle}
+.helpTitBg dd a{color:#333; display:block; text-decoration:none !important; line-height:24px;text-align:left;}
+.helpTitBg dd a:hover{color:#361F5B;}
+.helpTitBg dd a:hover,.helpTitBg dt a:hover{ text-decoration:underline}
 
    /*相关商品*/
    .boxCenterList ul{height:1%; margin-bottom:5px;}
@@ -2451,10 +2455,11 @@ img{vertical-align:top;border:0;}
 .coLogin_bottom ul li.qq_ico a{color:#333;}
 .coLogin_bottom ul li.alipay_ico{background-position:0 -46px;padding:0 5px 0 27px;}
 .coLogin_bottom ul li.alipay_ico a{color:#333;}
+.coLogin_bottom ul li.facebook_ico{background-position:0 -69px;padding:0 5px 0 27px;}
+.coLogin_bottom ul li.facebook_ico a{color:#333;}
 .coLogin_bottom ul li.baidu_ico{background-position:0 -69px;}
 .coLogin_bottom ul li.tuan800_ico{background-position:0 -92px;}
 .coLogin_bottom ul li.i360_ico{background-position:0 -161px;}
-.coLogin_bottom ul li.renren_ico{background-position:0 -115px;}
 .coLogin_bottom ul li.kaixin_ico{background-position:0 -138px;}
 .coLogin_bottom ul li.i2345_ico{background-position:0 -184px;}
 
