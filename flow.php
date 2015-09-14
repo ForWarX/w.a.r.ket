@@ -2231,7 +2231,6 @@ elseif ($_REQUEST['step'] == 'done')
     }
 
     /* 给商家发邮件 */
-    /* 增加是否给客服发送邮件选项 */
     if ($_CFG['send_service_email'] && $_CFG['service_email'] != '')
     {
         $tpl = get_mail_template('remind_of_new_order');
@@ -2241,6 +2240,20 @@ elseif ($_REQUEST['step'] == 'done')
         $smarty->assign('send_date', date($_CFG['time_format']));
         $content = $smarty->fetch('str:' . $tpl['template_content']);
         send_mail($_CFG['shop_name'], $_CFG['service_email'], $tpl['template_subject'], $content, $tpl['is_html']);
+    }
+    
+    /* 给客户发邮件 */
+    $consignee = get_consignee($_SESSION['user_id']);
+    if ($consignee['email'] != '')
+    {
+        $tpl = get_mail_template('order_confirm');
+        $smarty->assign('order', $order);
+        $smarty->assign('goods_list', $cart_goods);
+        $smarty->assign('shop_name', $_CFG['shop_name']);
+        $smarty->assign('send_date', date($_CFG['time_format']));
+        $content = $smarty->fetch('str:' . $tpl['template_content']);
+        $res = send_mail($_CFG['shop_name'], $consignee['email'], $tpl['template_subject'], $content, $tpl['is_html']);
+        showr($res);
     }
 
     /* 如果需要，发短信 */
