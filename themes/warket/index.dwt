@@ -101,6 +101,7 @@
 
         jssor_main_banner_starter = function (containerId) {
             var options = {
+				$HWA: false,
                 $AutoPlay: true,
 
                 $PauseOnHover: 1,                               //[Optional] Whether to pause when mouse over if a slideshow is auto playing, default value is false
