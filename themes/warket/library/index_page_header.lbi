@@ -150,7 +150,7 @@ var process_request = "{$lang.process_request}";
 	
 	function resizeTopContainer() {
 		var form = $("#searchForm");
-		var width = form.parent().width() - 49; // 49px是搜索框的padding(45) + border(2) + 2
+		var width = form.parent().width() - 52; // 49px是搜索框的padding(45) + border(2) + 5，最后的数字是为了缩小宽度以兼容不同的浏览器
 		form.find("#keyword").width(width * 0.75);
 		form.find("#search-btn").width(width * 0.25);
 	}
