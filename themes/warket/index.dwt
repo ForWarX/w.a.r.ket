@@ -228,7 +228,6 @@
 		<!-- Slides Container -->
         <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 1200px; height: 400px; overflow: hidden; text-align:center;">
 			{insert name='ads' id=14}
-			{insert name='ads' id=15}
 		</div>
 			
 		<!--#region Bullet Navigator Skin Begin -->
