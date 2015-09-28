@@ -83,7 +83,7 @@ if ($_REQUEST['act'] == 'add')
     admin_priv('article_manage');
 
     /* 创建 html editor */
-    create_html_editor('FCKeditor1');
+    create_html_editor('editor_cn');
 
     /*初始化*/
     $article = array();
@@ -157,7 +157,7 @@ if ($_REQUEST['act'] == 'insert')
     }
     else
     {
-        $open_type = $_POST['FCKeditor1'] == '' ? 1 : 2;
+        $open_type = $_POST['editor_cn'] == '' ? 1 : 2;
     }
 
     /*插入数据*/
@@ -169,7 +169,7 @@ if ($_REQUEST['act'] == 'insert')
     $sql = "INSERT INTO ".$ecs->table('article')."(title, cat_id, article_type, is_open, author, ".
                 "author_email, keywords, content, add_time, file_url, open_type, link, description) ".
             "VALUES ('$_POST[title]', '$_POST[article_cat]', '$_POST[article_type]', '$_POST[is_open]', ".
-                "'$_POST[author]', '$_POST[author_email]', '$_POST[keywords]', '$_POST[FCKeditor1]', ".
+                "'$_POST[author]', '$_POST[author_email]', '$_POST[keywords]', '$_POST[editor_cn]', ".
                 "'$add_time', '$file_url', '$open_type', '$_POST[link_url]', '$_POST[description]')";
     $db->query($sql);
 
@@ -204,7 +204,7 @@ if ($_REQUEST['act'] == 'edit')
     $article = $db->GetRow($sql);
 
     /* 创建 html editor */
-    create_html_editor('FCKeditor1',$article['content']);
+    create_html_editor('editor_cn',$article['content']);
 
     /* 取得分类、品牌 */
     $smarty->assign('goods_cat_list', cat_list());
