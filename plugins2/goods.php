@@ -1933,6 +1933,23 @@ elseif ($_REQUEST['act'] == 'drop_image')
     clear_cache_files();
     make_json_result($img_id);
 }
+/*------------------------------------------------------ */
+//-- 删除功效
+/*------------------------------------------------------ */
+elseif ($_REQUEST['act'] == 'drop_func')
+{
+    check_authz_json('goods_manage');
+
+    $func_id = empty($_REQUEST['func_id']) ? 0 : intval($_REQUEST['func_id']);
+
+    /* 删除数据 */
+    $sql = "DELETE FROM " . $GLOBALS['ecs']->table('goods_func') . " WHERE goods_func_id = '$func_id' LIMIT 1";
+    $GLOBALS['db']->query($sql);
+
+    clear_cache_files();
+    make_json_result($func_id);
+
+}
 
 /*------------------------------------------------------ */
 //-- 搜索商品，仅返回名称及ID
