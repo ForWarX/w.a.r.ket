@@ -224,39 +224,7 @@ if (!$smarty->is_cached('index.dwt', $cache_id))
 	//showr($category_info);print "d";
 	$smarty->assign('cat_info_list',       $category_info);
 	
-	
-	
-	
-	
-	
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
     /* 页面中的动态内容 */
     assign_dynamic('index');
 }
