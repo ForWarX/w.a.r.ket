@@ -51,7 +51,7 @@
 					<div id="text_under_img_{$cat_info_list_item.sort_order}" class="" style="display:none;">
 					<table border="0" cellspacing="0" cellpadding="0" style="width:100%;height:100%;">
 					<tr>
-					<td style="vertical-align:middle;text-align: center;">	
+					<td style="vertical-align:middle;text-align: center;">
 					<div>
 					{$cat_info_list_item.cat_name}
 					</div>
@@ -72,7 +72,7 @@
 	<a id="{$cat_info_list_item.sort_order}" class="vertical_nav_div_a" href="#section{$cat_info_list_item.sort_order}" data-number="{$cat_info_list_item.sort_order}"
 	style="text-decoration: none;overflow: hidden;"
 	>
-	<span id="vertical-nav-span-number-{$cat_info_list_item.sort_order}" class="vertical-nav-span-number sider-floor-pic sider-floor1" 
+	<span id="vertical-nav-span-number-{$cat_info_list_item.sort_order}" class="vertical-nav-span-number sider-floor-pic sider-floor1"
 	style="
 	display: block;
 	font-size: 14px;
@@ -80,20 +80,20 @@
 	text-align: center;
 	color: #5a5a5a;
 	-webkit-font-smoothing: antialiased;
-	-webkit-text-stroke-width: .2px;	
+	-webkit-text-stroke-width: .2px;
 	"><div style="width:100%;height:100%;padding:0px;display:table;"><font style="display:table-cell;vertical-align:middle;">{$cat_info_list_item.sort_order}F</font></div></span>
 	<span id="vertical-nav-span-font-{$cat_info_list_item.sort_order}" class="vertical-nav-span-font sider-floor-double  sider-floor-font"
 	style="
 	display: none;
-	text-align: center;	
+	text-align: center;
 	"><div style="width:100%;height:100%;padding:0px;display:table;"><font style="display:table-cell;vertical-align:middle;">{$cat_info_list_item.cat_name}</font></div></span>
 	</a>
 </div>
-<!-- {/foreach} -->	
+<!-- {/foreach} -->
 </nav>
 
-<!--===================================================== 
-======================== slide show ===================== 
+<!--=====================================================
+======================== slide show =====================
 ======================================================-->
 <div class="block clearfix">
 
@@ -177,7 +177,7 @@
                 $UISearchMode: 1,                                   //[Optional] The way (0 parellel, 1 recursive, default value is 1) to search UI components (slides container, loading screen, navigator container, arrow navigator container, thumbnail navigator container etc).
                 $PlayOrientation: 1,                                //[Optional] Orientation to play slide (for auto play, navigation), 1 horizental, 2 vertical, 5 horizental reverse, 6 vertical reverse, default value is 1
                 $DragOrientation: drag,                             //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
-               
+
 				$Delay: 800,  										//Delay to assembly blocks
                 $BulletNavigatorOptions: {                          //[Optional] Options to specify and enable navigator or not
                     $Class: $JssorBulletNavigator$,                 //[Required] Class to create navigator instance
@@ -220,16 +220,16 @@
 			*/
         };
     </script>
-    
+
     <!-- Jssor Slider Begin -->
     <!-- You can move inline styles to css file or css block. -->
     <div id="main_banner_container" style="position: relative; top: 0px; left: 0px; width: 1200px; height: 400px; overflow: hidden;">
-		
+
 		<!-- Slides Container -->
         <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 1200px; height: 400px; overflow: hidden; text-align:center;">
 			{insert name='ads' id=14}
 		</div>
-			
+
 		<!--#region Bullet Navigator Skin Begin -->
         <style>
         	.jssorb18{position:absolute}
@@ -258,7 +258,7 @@
 			</div>
 		</div>
         <!--#endregion Bullet Navigator Skin End -->
-        
+
         <!-- Trigger -->
         <script>
             jssor_main_banner_starter('main_banner_container');
@@ -267,14 +267,14 @@
     </div>
     <!-- Jssor Slider End -->
 
-<!--===================================================== 
-==================== end of slide show ================== 
+<!--=====================================================
+==================== end of slide show ==================
 ======================================================-->
 
 
 
-<!--===================================================== 
-=================== everyWeekSelection-panel ============ 
+<!--=====================================================
+=================== everyWeekSelection-panel ============
 ======================================================-->
 <!--<div class="blank"></div>
 <div id="everyWeekSelection-panel" class="clearfix">
@@ -288,7 +288,7 @@
         {foreach name=nav_middle_list from=$navigator_list.middle  key=key item=nav}
 		{assign var="g" value=$key+2}
         <a href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if} {if $nav.active eq 1} class="cur"{/if}>
-          {$nav.name} 
+          {$nav.name}
           {assign var=key_plus value=$smarty.foreach.nav_middle_list.iteration}
           {assign var=na value=$navigator_list.middle.$key_plus}
         </a>
@@ -296,7 +296,7 @@
        <font></font>
        {foreach name=nav_middle_list from=$navigator_list.middle  key=key item=nav}
         <a href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if} {if $nav.active eq 1} class="cur"{/if}>
-          {$nav.name} 
+          {$nav.name}
           {assign var=key_plus value=$smarty.foreach.nav_middle_list.iteration}
           {assign var=na value=$navigator_list.middle.$key_plus}
         </a>
@@ -309,7 +309,7 @@
   </table>
 </div>-->
 <!--============================================================
-================= end of everyWeekSelection-panel ============== 
+================= end of everyWeekSelection-panel ==============
 =============================================================-->
 
 
@@ -337,8 +337,8 @@
 						</div>
 						<!-- Slides Container -->
 						<div u="slides"  class="" style="cursor:  {if $cat_info_list_item.left_banner|@count gt 1}move{/if}; position: absolute; left: 0px; top: 0px; width: 226px;height: 394px; overflow: hidden;">
-	
-								{if $cat_info_list_item.left_banner|@count gt 1}							
+
+								{if $cat_info_list_item.left_banner|@count gt 1}
 								<!-- {foreach name=left_banner from=$cat_info_list_item.left_banner  key=key item=item}-->{assign var = num value = $smarty.foreach.left_banner.iteration}
 								<!-- {if $item.url neq "" and $item.url neq "http://"}-->
 								<div style="width:100%;height:394px;">
@@ -349,22 +349,22 @@
 								<!-- {else}-->
 								<div><img src="{$item.src}" style="width:100%;"/></div>
 								<!-- {/if}-->
-								<!-- {/foreach} --> 
+								<!-- {/foreach} -->
 								{else}
 								<div><img src="themes/warket/images/side_banner_default.jpg" style="width:100%;"/></div>
 								{/if}
-					
-		
+
+
 					  </div>
 					<!-- bullet navigator container -->
-					{if $num gt 1}	
+					{if $num gt 1}
 					<div u="navigator" class="Bullet" style="position: absolute; bottom: 2px; left: 6px;">
 						<!-- bullet navigator item prototype -->
 						<div u="prototype" style="POSITION: absolute; WIDTH: 19px; HEIGHT: 19px; text-align:center; line-height:19px; color:White; font-size:12px;"></div>
 					</div>
 					{/if}
 					<!-- Bullet Navigator Skin End -->
-			  
+
 					</div>
 		<!--====================================================================== End of Left Banner =======================================================================================-->
           </td>
@@ -372,7 +372,7 @@
             <table border="0" cellspacing="0" cellpadding="0" style="width:100%;margin:0 auto;">
               <tr>
                 <td style="vertical-align:top;text-align:center;padding:0 2px;">
-				
+
 					<!--====================================================================== Top Banner =======================================================================================-->
 					<div id="top_banner_scroll_id_{$cat_info_list_item.cat_id}" style="position: relative; margin: 0 auto;top: 0px; left: 0px; width: 744px; height: 39px; overflow: hidden;">
 						<!-- Loading Screen -->
@@ -382,8 +382,8 @@
 						</div>
 						<!-- Slides Container -->
 						<div u="slides"  class="" style="cursor: {if $cat_info_list_item.top_banner|@count gt 1}move{/if}; position: absolute; left: 0px; top: 0px; width: 744px;height: 39px; overflow: hidden;">
-	
-								{if $cat_info_list_item.top_banner|@count gt 1}								
+
+								{if $cat_info_list_item.top_banner|@count gt 1}
 								<!-- {foreach name=top_banner from=$cat_info_list_item.top_banner  key=key item=item}-->
 								<!-- {if $item.url neq "" and $item.url neq "http://"}-->
 								<div style="width:744px;height:39px;">
@@ -394,11 +394,11 @@
 								<!-- {else}-->
 								<div><img src="{$item.src}" style="width:100%;"/></div>
 								<!-- {/if}-->
-								<!-- {/foreach} --> 
+								<!-- {/foreach} -->
 								{else}
 								<div><img src="themes/warket/images/side_banner_default.jpg" style="width:100%;"/></div>
 								{/if}
-		
+
 					     </div>
 					<!-- bullet navigator container -->
 					<div u="navigator" class="Bullet_invisble" style="position: absolute; bottom: 2px; left: 6px;">
@@ -406,10 +406,10 @@
 						<div u="prototype" style="POSITION: absolute; WIDTH: 19px; HEIGHT: 19px; text-align:center; line-height:19px; color:White; font-size:12px;"></div>
 					</div>
 					<!-- Bullet Navigator Skin End -->
-			  
+
 					</div>
 					<!--====================================================================== End of Top Banner =======================================================================================-->
-	
+
                 </td>
               </tr>
               <tr style="height:4px;"><td></td></tr>
@@ -434,7 +434,7 @@
         <!-- Slides Container -->
         <div  id="products" u="slides"  class="" style="position: absolute; left: 0px; top: 0px; width: 744px;
             height: 350px; overflow: hidden;">
-           
+
 				{assign var = "page" value = 0}
                <!-- {foreach name=paged_result from=$cat_info_list_item.paged_result  key=key item=gitem}-->{assign var = "page" value = $smarty.foreach.paged_result.iteration}
 			    <div>
@@ -466,7 +466,7 @@ padding: 0px 4px;">
 												<span class="shop_price">
 												{$topitem.shop_price}
 												</span>
-												</div>												
+												</div>
 											</div>
 										</li>
 										<!-- {/foreach} -->
@@ -494,7 +494,7 @@ padding: 0px 4px;">
 												<span class="shop_price">
 												{$bottompitem.shop_price}
 												</span>
-												</div>												
+												</div>
 											</div>
 										</li>
 										<!-- {/foreach} -->
@@ -506,13 +506,13 @@ padding: 0px 4px;">
 
 
 
- 
+
 				</div>
-                <!-- {/foreach} -->             
-           
+                <!-- {/foreach} -->
+
         </div>
-                
-       
+
+
         <!-- bullet navigator container -->
 
         <div u="navigator" class="jssorb21" style="position: absolute; bottom: 2px; left: 6px;">
@@ -554,8 +554,8 @@ padding: 0px 4px;">
 						</div>
 						<!-- Slides Container -->
 						<div u="slides"  class="" style="cursor:  {if $cat_info_list_item.right_banner|@count gt 1}move{/if}; position: absolute; left: 0px; top: 0px; width: 226px;height: 394px; overflow: hidden;">
-	
-								{if $cat_info_list_item.right_banner|@count gt 1}							
+
+								{if $cat_info_list_item.right_banner|@count gt 1}
 								<!-- {foreach name=right_banner from=$cat_info_list_item.right_banner  key=key item=item}-->{assign var = num value = $smarty.foreach.right_banner.iteration}
 								<!-- {if $item.url neq "" and $item.url neq "http://"}-->
 								<div style="width:100%;height:394px;">
@@ -566,22 +566,22 @@ padding: 0px 4px;">
 								<!-- {else}-->
 								<div><img src="{$item.src}" style="width:100%;"/></div>
 								<!-- {/if}-->
-								<!-- {/foreach} --> 
+								<!-- {/foreach} -->
 								{else}
 								<div><img src="themes/warket/images/side_banner_default.jpg" style="width:100%;"/></div>
 								{/if}
-					
-		
+
+
 					     </div>
 					<!-- bullet navigator container -->
-					{if $num gt 1}	
+					{if $num gt 1}
 					<div u="navigator" class="Bullet" style="position: absolute; bottom: 2px; left: 6px;">
 						<!-- bullet navigator item prototype -->
 						<div u="prototype" style="POSITION: absolute; WIDTH: 19px; HEIGHT: 19px; text-align:center; line-height:19px; color:White; font-size:12px;"></div>
 					</div>
 					{/if}
 					<!-- Bullet Navigator Skin End -->
-			  
+
 					</div>
 					<!--======================================================================End of Right Banner =======================================================================================-->
           </td>
@@ -601,7 +601,7 @@ padding: 0px 4px;">
 						</div>
 						<!-- Slides Container -->
 						<div u="slides"  class="" style="cursor: {if $cat_info_list_item.bottom_banner|@count gt 1}move{/if}; position: absolute; left: 0px; top: 0px; width: 1200px;height: 50px; overflow: hidden;">
-	
+
 								{if $cat_info_list_item.bottom_banner|@count gt 1}
 								<!-- {foreach name=bottom_banner from=$cat_info_list_item.bottom_banner  key=key item=item}-->
 								<!-- {if $item.url neq "" and $item.url neq "http://"}-->
@@ -613,11 +613,11 @@ padding: 0px 4px;">
 								<!-- {else}-->
 								<div><img src="{$item.src}" style="width:100%;"/></div>
 								<!-- {/if}-->
-								<!-- {/foreach} --> 
+								<!-- {/foreach} -->
 								{else}
 								<div><img src="themes/warket/images/bottom_banner_default.jpg" style="width:100%;"/></div>
 								{/if}
-		
+
 					     </div>
 					<!-- bullet navigator container -->
 					<div u="navigator" class="Bullet_invisble" style="position: absolute; bottom: 2px; left: 6px;">
@@ -625,7 +625,7 @@ padding: 0px 4px;">
 						<div u="prototype" style="POSITION: absolute; WIDTH: 19px; HEIGHT: 19px; text-align:center; line-height:19px; color:White; font-size:12px;"></div>
 					</div>
 					<!-- Bullet Navigator Skin End -->
-			  
+
 					</div>
 					<!--======================================================================End of Bottom Banner =======================================================================================-->
       </td>
@@ -643,7 +643,7 @@ padding: 0px 4px;">
     </script>
 
 
-<!-- {/foreach} --> 
+<!-- {/foreach} -->
 
 
 
@@ -657,22 +657,22 @@ padding: 0px 4px;">
 
 <div class="blank"></div>
 <!--<div id="re_men_outside_container" style="position: relative; width: 1200px;margin: 0 auto;overflow:hidden;">
-	
+
 	<table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
 		<tr>
 		<td style="width:68%;">
-	
+
 	<div style="width:100%;border:1px solid #E8E8E8;" >
 	<table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
 		<tr>
 		<td style="width:100%;text-align:left;">
 		<div style="margin-left:0px;font-family:Microsoft YaHei;font-size:1.2em;background:#f4f4f4;font-weight:700;cursor:default;">
 			<table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
-			<tr>	
+			<tr>
 			<td>
 				<font style="padding:1px 3px;"></font>
 			</td>
-			<td>	
+			<td>
 				<font style="padding:1px 3px;"></font>
 			</td>
 			</tr>
@@ -680,26 +680,26 @@ padding: 0px 4px;">
 		</div>
 		</td>
 		</tr>
-		
+
 		<tr>
 			<td style="width:100%;padding:4px;">
-	
+
           <div id="slider1_container" style="position: relative; top: 8px; left: 0px; width: 650px;height: 140px;">
             <!-- Slides Container -->
             <div u="slides" style="position: absolute; left: 0px; top: 0px; width: 650px; height: 140px;overflow: hidden;">
                         <!-- {foreach from=$re_men_shai_dan_banner_db  key=key item=item}-->
             <div>
-			
+
 			<table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
 			<tr>
-			
-			
-			
-			
+
+
+
+
 			<td style="width:;font-family:Microsoft YaHei;font-size:1.1em;">
-			
-			
-			
+
+
+
               <table style="width:100%">
                 <tr>
                   <td style="width:20%;">
@@ -721,19 +721,19 @@ padding: 0px 4px;">
                   </td>
                 </tr>
               </table>
-			  
-			  
-			  
-			  
-			  
-			  
-			  
-			  
-			  
+
+
+
+
+
+
+
+
+
 			      </td>
-				  
-				  
-				  
+
+
+
 				  	<td style="width:50%;font-family:Microsoft YaHei;font-size:1.1em;">
 			{if $re_men_huo_dong_banner_db.$key}
 			{assign var=huo_dong value=$re_men_huo_dong_banner_db.$key}
@@ -762,18 +762,18 @@ padding: 0px 4px;">
 			    <table style="width:100%">
                 <tr>
                   <td style="width:20%;">
-                   
+
                   </td>
                   <td style="vertical-align:top;">
                     <table>
                       <tr>
                         <td>
-                          
+
                         </td>
                       </tr>
                       <tr>
                         <td>
-                          
+
                         </td>
                       </tr>
                     </table>
@@ -781,64 +781,64 @@ padding: 0px 4px;">
                 </tr>
               </table>
 			{/if}
-			  
-			  
-			  
-			  
-			  
-			  
-			  
+
+
+
+
+
+
+
 			      </td>
-				  
-				  
-				  
-				  
-				  
-				  
+
+
+
+
+
+
                 </tr>
               </table>
-			  
-			  
+
+
             </div>
            <!-- {/foreach}-->
             </div>
          </div>
-		 
+
 				</td>
 				<td>
-				
-				
-				
+
+
+
 				</td>
 			</tr>
 		</table>
 		<table border="0" cellpadding="0" cellspacing="0"><tr height="3"><td></td></tr></table>
-	</div>  
-		 
-		 
+	</div>
+
+
 	</td>
 	<td width="7">
 	</td>
 	<td style="height:164px;">
-	
-	
+
+
 	<table border="0" cellspacing="0" cellpadding="0" style="width:100%;height:100%;">
 	<tr>
-	
+
 	<td>
-	
-	
+
+
 	<table border="0" cellspacing="0" cellpadding="0" style="width:100%;height:100%;">
 	<tr>
 	<td style="background-color:#FF9D9D;height:18px;">
-	
+
 	</td>
 	</tr>
 	<tr>
 	<td>
 	<div class="mar"  style="height:100%; padding:1px;border:1px solid #E8E8E8;">
 	<marquee behavior="scroll" direction="up" scrollamount="1" style="height:100%;" onmouseover="this.stop();" onmouseout="this.start();" scrolldelay="2">
-	
+
 	<table border="0" cellspacing="0" cellpadding="0" style="width:100%;">
 	<!-- {foreach from=$faq_comments  key=key item=item}-->
 				<tr>
@@ -847,36 +847,36 @@ padding: 0px 4px;">
 				</td>
 				</tr>
 				<tr height="7"><td></td></tr>
-	<!-- {/foreach}-->	
+	<!-- {/foreach}-->
 	</table>
 	</marquee>
-	
+
 	</div>
 	</td>
 	</tr>
 	</table>
-	
-	
+
+
 	</td>
 
 	</tr>
 	</table>
-	
-	
+
+
 	</td>
 	</tr>
-	</table>	 
+	</table>
 
-</div>     -->    
+</div>     -->
 <script>
       /* $(document).ready(function () {
            $('div.mar marquee').marquee('pointer').mouseover(function () {
 			  $(this).trigger('stop');
 			}).mouseout(function () {
 			  $(this).trigger('start');
-			})        
+			})
 	});*/
-		 
+
 </script>
 
 <!-- end-->
@@ -902,7 +902,7 @@ padding: 0px 4px;">
 
             var jssor_slider1 = new $JssorSlider$("slider1_container", options);
         });*/
-		 
+
 </script>
 			<!--<div>
 				<div id="followbox"></div>
@@ -918,14 +918,14 @@ padding: 0px 4px;">
 					<div class="empty">Remove all items from cart.</div>
 				</div>
 			</div>
-			<div id="dialog-confirm" title="Empty Cart">Are you sure you want to empty the contents of your shopping cart.</div>-->	
-			
-			
-			
-			
+			<div id="dialog-confirm" title="Empty Cart">Are you sure you want to empty the contents of your shopping cart.</div>-->
 
 
-			
+
+
+
+
+
 <script>
 //var product_id = 47;
 </script>

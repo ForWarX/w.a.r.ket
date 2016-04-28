@@ -94,8 +94,8 @@ var process_request = "{$lang.process_request}";
 				   		>
 				   			搜索
 				   		</button>
-				   		<span style="display: inline-block; margin-top: 5px;">热点搜索：苹果 火锅料 方便面</span>
-				   		<span style="display: inline-block; float:right; margin-top: 3px;">配送至 <strong style="font-size:16px;">多伦多</strong>：满49包邮</span>
+				   		<span style="display: inline-block; margin-top: 5px;">热点搜索：坚果 巧克力</span>
+				   		<span style="display: inline-block; float:right; margin-top: 3px;">配送至 <strong style="font-size:16px;">大多伦多</strong>：满50包邮</span>
 				   		<input type="hidden" id="sc_ds" value="1" name="sc_ds">
 				   		<input type="hidden" id="category" value="0" name="category">
 				   		<input type="hidden" id="brand" value="0" name="brand">
@@ -110,6 +110,7 @@ var process_request = "{$lang.process_request}";
 	</div>
 	<div id="mainNav" class="clearfix">
 		<div style="width:100%; max-width:1200px; margin:0 auto;">
+			<!--
 			<div style="width:20%; margin-right:10px; float:left; margin-top:6px;">
 				<div style="width: 160px; text-align: center;">
 					<select style="background-color: #348e44; border:0; color:white;">
@@ -117,6 +118,7 @@ var process_request = "{$lang.process_request}";
 					</select>
 				</div>
 			</div>
+			-->
 			<div id="navList" style="width: 79%;">
 		  		<!-- {foreach name=nav_middle_list from=$navigator_list.middle  key=key item=nav}-->
 		  			<a href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if} {if $nav.active eq 1} class="cur"{/if}>
@@ -127,6 +129,26 @@ var process_request = "{$lang.process_request}";
 		 		<!-- {/foreach} -->
 	 		</div>
 	 	</div>
+		<div>
+			<a>
+				团购
+			</a>
+		</div>
+		<div>
+			<a>
+				餐馆
+			</a>
+		</div>
+		<div>
+			<a>
+				超市联盟
+			</a>
+		</div>
+		<div>
+			<a>
+				B2B
+			</a>
+		</div>
 	</div>
 </div>
 <script>
