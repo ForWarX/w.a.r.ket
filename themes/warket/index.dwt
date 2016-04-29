@@ -15,8 +15,6 @@
 <link rel="icon" href="animated_favicon.gif" type="image/gif" />
 <link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
 <link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
-
-
 </head>
 
 
@@ -70,8 +68,7 @@
 <!-- {foreach name=cat_info_list from=$cat_info_list  key=key item=cat_info_list_item}-->
 <div style="width: 36px;height: 36px;" id="nav_div_{$cat_info_list_item.sort_order}">
 	<a id="{$cat_info_list_item.sort_order}" class="vertical_nav_div_a" href="#section{$cat_info_list_item.sort_order}" data-number="{$cat_info_list_item.sort_order}"
-	style="text-decoration: none;overflow: hidden;"
-	>
+	style="text-decoration: none;overflow: hidden;">
 	<span id="vertical-nav-span-number-{$cat_info_list_item.sort_order}" class="vertical-nav-span-number sider-floor-pic sider-floor1"
 	style="
 	display: block;
@@ -96,9 +93,7 @@
 ======================== slide show =====================
 ======================================================-->
 <div class="block clearfix">
-
     <script>
-
         jssor_main_banner_starter = function (containerId) {
             var options = {
 				$HWA: false,

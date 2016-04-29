@@ -130,22 +130,22 @@ var process_request = "{$lang.process_request}";
 	 		</div>
 	 	</div>
 		<div>
-			<a href="themes/warket/group_sales.dwt">
+			<a href="group_sales.php">
 				团购
 			</a>
 		</div>
 		<div>
-			<a  href="themes/warket/restaurant_delivery.dwt">
-				餐馆
+			<a  href="restaurant_delivery.php">
+				送餐服务
 			</a>
 		</div>
 		<div>
-			<a href="themes/warket/market_delivery.dwt">
+			<a href="market_delivery.php">
 				超市联盟
 			</a>
 		</div>
 		<div>
-			<a href="themes/warket/b2b.php">
+			<a href="b2b.php">
 				B2B
 			</a>
 		</div>

@@ -1,11 +1,64 @@
-/*团购*/
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="Keywords" content="{$keywords}" />
+    <meta name="Description" content="{$description}" />
+    <!-- TemplateBeginEditable name="doctitle" -->
+    <title>{$page_title}</title>
+    <!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="icon" href="animated_favicon.gif" type="image/gif" />
+    <link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+    <!-- {if $cat_style} -->
+    <link href="{$cat_style}" rel="stylesheet" type="text/css" />
+    <!-- {/if} -->
+    {* 包含脚本文件 *}
 </head>
 <body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+{insert_scripts files='common.js,compare.js,gototop.js'}
+{insert_scripts files='jssor.js,jssor.slider.js'}
+<!--left start-->
+<div class="AreaL">
+    <!-- TemplateBeginEditable name="左边区域" --><!-- #BeginLibraryItem "/library/category_tree.lbi" --><!-- #EndLibraryItem -->
+</div>
+<!--left end-->
+<!--right-->
+<div id="contact_email" style="margin-top: 5%;margin-left: 30%;">
+    <p style="font-size: larger;">请您填写邮箱和内容，我们的工作人员会尽快回复。</p>
+    <div style="height: 10px;"></div>
+    <input type ="text" placeholder="您的邮箱地址">
+    <div style="height: 10px;"></div>
+    <textarea style="width: 80%;height: 300px;"></textarea>
+    <div style="height: 10px;"></div>
+    <button style="margin-left: 76%;">确定</button>
+</div>
+<!-- right end-->
+<div class="blank"></div>
+<!-- 页脚 + 购物车 -->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!-- slide js -->
 
+<script>
+    /*$(document).ready(function () {
+     var options = {
+     $AutoPlay: true,                                    //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
+     $PlayOrientation: 6,                                //[Optional] Orientation to play slide (for auto play, navigation), 1 horizental, 2 vertical, 5 horizental reverse, 6 vertical reverse, default value is 1
+     $DragOrientation: 0,                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
+     //$SlideWidth: 600,                                 //[Optional] Width of every slide in pixels, default value is width of 'slides' container
+     $SlideHeight: 70,                                //[Optional] Height of every slide in pixels, default value is height of 'slides' container
+     $ArrowNavigatorOptions: {
+     $Class: $JssorArrowNavigator$,              //[Requried] Class to create arrow navigator instance
+     $ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+     $AutoCenter: 1,                                 //[Optional] Auto center arrows in parent container, 0 No, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
+     $Steps: 1                                       //[Optional] Steps to go for each navigation request, default value is 1
+     }
+     };
+
+     var jssor_slider1 = new $JssorSlider$("slider1_container", options);
+     });*/
+
+</script>
 </body>
 </html>
