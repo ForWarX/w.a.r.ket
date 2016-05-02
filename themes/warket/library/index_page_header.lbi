@@ -129,6 +129,7 @@ var process_request = "{$lang.process_request}";
 		 		<!-- {/foreach} -->
 	 		</div>
 	 	</div>
+		<!--
 		<div>
 			<a href="group_sales.php">
 				团购
@@ -149,6 +150,7 @@ var process_request = "{$lang.process_request}";
 				B2B
 			</a>
 		</div>
+		-->
 	</div>
 </div>
 
