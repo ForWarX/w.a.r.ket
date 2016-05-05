@@ -873,8 +873,35 @@ padding: 0px 4px;">
 	});*/
 
 </script>
-
 <!-- end-->
+<div style="width: 100%;">
+	<table>
+		<tr>
+			<td style="width: 25%;height: 250px;">
+				<a href="flower.php">
+					<img src="">1111111111111111<!--鲜花礼品-->
+				</a>
+			</td>
+			<td style="width: 25%;height: 250px;">
+				<a href="market_delivery.php">
+					<img src="">1111111111111111<!--超市联盟-->
+				</a>
+			</td>
+			<td style="width: 25%;height: 250px;">
+				<a href="restaurant_delivery.php">
+					<img src="">11111111111111111<!--送餐服务-->
+				</a>
+			</td>
+			<td style="width: 25%;height: 250px;">
+				<a href="b2b.php">
+					<img src="">11111111111111111<!--b2b-->
+				</a>
+			</td>
+		</tr>
+	</table>
+
+</div>
+
 <div class="blank"></div>
 <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
 <!-- slide js -->
