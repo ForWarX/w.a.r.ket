@@ -19,6 +19,7 @@
 <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
 {insert_scripts files='common.js,compare.js,gototop.js'}
 {insert_scripts files='jssor.js,jssor.slider.js'}
+
 <!--left start-->
 <div class="AreaL">
     <!-- TemplateBeginEditable name="左边区域" --><!-- #BeginLibraryItem "/library/category_tree.lbi" --><!-- #EndLibraryItem -->

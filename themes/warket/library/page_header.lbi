@@ -129,6 +129,12 @@ var process_request = "{$lang.process_request}";
 		 		<!-- {/foreach} -->
 	 		</div>
 	 	</div>
+		<div>
+			<!--品牌搜索-->
+			<a href="brand_search.php">
+				品牌
+			</a>
+		</div>
 	</div>
 </div>
 <script>

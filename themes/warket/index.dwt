@@ -877,24 +877,24 @@ padding: 0px 4px;">
 <div style="width: 100%;">
 	<table>
 		<tr>
-			<td style="width: 25%;height: 250px;">
+			<td style="width:300px;height: 200px;border: 0px solid lightgreen;">
 				<a href="flower.php">
-					<img src="">1111111111111111<!--鲜花礼品-->
+					<img src="themes/warket/images/bottom_banner/flower.png"><!--鲜花礼品-->
 				</a>
 			</td>
-			<td style="width: 25%;height: 250px;">
+			<td style="width:300px;height: 200px;border: 0px solid lightgreen;">
 				<a href="market_delivery.php">
-					<img src="">1111111111111111<!--超市联盟-->
+					<img src="themes/warket/images/bottom_banner/market_delivery.png"><!--超市联盟-->
 				</a>
 			</td>
-			<td style="width: 25%;height: 250px;">
+			<td style="width:300px;height: 200px;border: 0px solid lightgreen;">
 				<a href="restaurant_delivery.php">
-					<img src="">11111111111111111<!--送餐服务-->
+					<img src="themes/warket/images/bottom_banner/rea_delivery.png"><!--送餐服务-->
 				</a>
 			</td>
-			<td style="width: 25%;height: 250px;">
+			<td style="width:300px;height: 200px;border: 0px solid lightgreen;">
 				<a href="b2b.php">
-					<img src="">11111111111111111<!--b2b-->
+					<img src="themes/warket/images/bottom_banner/b2b.jpg"><!--b2b-->
 				</a>
 			</td>
 		</tr>

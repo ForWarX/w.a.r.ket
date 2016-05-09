@@ -24,52 +24,16 @@
     <!-- TemplateBeginEditable name="左边区域" --><!-- #BeginLibraryItem "/library/category_tree.lbi" --><!-- #EndLibraryItem -->
 </div>
 <!--left end-->
-<div style="height: 10px;"></div>
 <!--right-->
-<div style="width: 100%;">
-    <a href="#">
-        <img id="flyer_img" style="width: 230px;;height:230px;border: 1px solid lightgrey;">
-    </a>
-    <a href="#">
-        <img id="flyer_img" style="width: 230px;;height:230px;border: 1px solid lightgrey;">
-    </a>
-    <a href="#">
-        <img id="flyer_img" style="width: 230px;;height:230px;border: 1px solid lightgrey;">
-    </a>
-    <a href="#">
-        <img id="flyer_img" style="width: 230px;;height:230px;border: 1px solid lightgrey;">
-    </a>
-    <br>
-    <a href="#">
-        <img id="flyer_img" style="width: 230px;;height:230px;border: 1px solid lightgrey;">
-    </a>
-    <a href="#">
-        <img id="flyer_img" style="width: 230px;;height:230px;border: 1px solid lightgrey;">
-    </a>
-    <a href="#">
-        <img id="flyer_img" style="width: 230px;;height:230px;border: 1px solid lightgrey;">
-    </a>
-    <a href="#">
-        <img id="flyer_img" style="width: 230px;;height:230px;border: 1px solid lightgrey;">
-    </a>
+<div id="contact_email" style="margin-top: 5%;margin-left: 30%;">
+    <!-- 搜索框 -->
+    <form action="">
+        <input type="text" style="width: 50%;" placeholder="请输入搜索的品牌" />
+        <input type="submit" value="确定" />
+    </form>
+    <!--品牌排序-->
+
 </div>
-<script type="text/javascript">
-    $(function(){
-        $("#flyer_img").click(function(){
-            var width = $(this).width();
-            if(width==230)
-            {
-                $(this).width(800);
-                $(this).height(800);
-            }
-            else
-            {
-                $(this).width(230);
-                $(this).height(230);
-            }
-        });
-    });
-</script>
 <!-- right end-->
 <div class="blank"></div>
 <!-- 页脚 + 购物车 -->
