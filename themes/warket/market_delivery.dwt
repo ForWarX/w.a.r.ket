@@ -26,10 +26,6 @@
 <!--left end-->
 <div style="height: 10px;"></div>
 <!--right-->
-<<<<<<< HEAD
-<div style="height: 10px;"></div>
-=======
->>>>>>> e3a3679943c1f650f6fc3457a5053b7a1371b40c
 <div style="width: 100%;">
     <a href="#">
         <img id="flyer_img" style="width: 230px;;height:230px;border: 1px solid lightgrey;">
