@@ -15,8 +15,7 @@ assign_template();
 $cat_arry = get_left_goods_nav($cat_id,1,true);//type: 0 means its based on sub_cat_id, 1 means its based on cat_id,true:only show the is_show == 1
 $smarty->assign('categories',       $cat_arry); // ·ÖÀàÊ÷
 
-$smarty->display('b2b.dwt'); //diaplay
+$smarty->display('brand_search.dwt'); //diaplay
 
 
 
-brand_search

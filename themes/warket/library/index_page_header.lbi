@@ -128,27 +128,13 @@ var process_request = "{$lang.process_request}";
 		  			</a>
 		 		<!-- {/foreach} -->
 	 		</div>
+			<div>
+			<!--品牌搜索-->
+			<a href="brand_search.php">
+				品牌
+			</a>
+		</div>
 	 	</div>
-		<div>
-			<a href="group_sales.php">
-				团购
-			</a>
-		</div>
-		<div>
-			<a  href="restaurant_delivery.php">
-				送餐服务
-			</a>
-		</div>
-		<div>
-			<a href="market_delivery.php">
-				超市联盟
-			</a>
-		</div>
-		<div>
-			<a href="b2b.php">
-				B2B
-			</a>
-		</div>
 	</div>
 </div>
 
