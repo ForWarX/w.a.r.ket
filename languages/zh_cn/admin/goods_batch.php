@@ -65,6 +65,7 @@ $_LANG['use_help'] = '使用说明：' .
           '<li>将填写的商品图片和商品缩略图上传到相应目录，例如：[根目录]/images/200610/；<br />'.
               '<font style="color:#FE596A;">请首先上传商品图片和商品缩略图再上传csv文件，否则图片无法处理。</font></li>' .
           '<li>选择所上传商品的分类以及文件编码，上传csv文件</li>' .
+          '<li><strong>csv格式不能处理中文，保存成xlsx格式后再用工具（比如ExcelToCSV.exe）转成csv格式的文本</strong></li>' .
         '</ol>';
 
 $_LANG['js_languages']['please_select_goods'] = '请您选择商品';
@@ -75,7 +76,7 @@ $_LANG['js_languages']['please_upload_file'] = '请您上传批量csv文件';
 
 // 批量上传商品的字段
 $_LANG['upload_goods']['goods_name'] = '商品名称';
-$_LANG['upload_goods']['goods_name_en'] = '商品名称(en)';
+$_LANG['upload_goods']['goods_name_en'] = '商品名称（英文）';
 $_LANG['upload_goods']['goods_sn'] = '商品货号';
 $_LANG['upload_goods']['brand_name'] = '商品品牌';   // 需要转换成brand_id
 $_LANG['upload_goods']['market_price'] = '市场售价（百福价）';
@@ -85,6 +86,7 @@ $_LANG['upload_goods']['integral'] = '积分购买额度';
 $_LANG['upload_goods']['keywords'] = '商品关键词';
 $_LANG['upload_goods']['goods_brief'] = '简单描述';
 $_LANG['upload_goods']['goods_desc'] = '详细描述';
+$_LANG['upload_goods']['goods_desc_en'] = '详细描述（英文）';
 $_LANG['upload_goods']['goods_weight'] = '商品重量（kg）';
 $_LANG['upload_goods']['goods_number'] = '库存数量';
 $_LANG['upload_goods']['warn_number'] = '库存警告数量';

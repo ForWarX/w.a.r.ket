@@ -29,6 +29,7 @@ if ($_REQUEST['act'] == 'add')
     {
         if ($file != '.' && $file != '..' && $file != ".svn" && $file != "_svn" && is_dir('../languages/' .$file) == true)
         {
+            if ($file != 'zh_cn') continue; // 暂且屏蔽简体中文以外的语言，语言包未整理
             $download_list[$file] = sprintf($_LANG['download_file'], isset($_LANG['charset'][$file]) ? $_LANG['charset'][$file] : $file);
         }
     }
@@ -334,8 +335,9 @@ elseif ($_REQUEST['act'] == 'upload')
         }
     }
     elseif($_POST['data_cat'] == 'default_csv')
-    {//print 1;//showr($data);//return true; 
-		$result = array();//showr($data);
+    {
+        $cat_id = $_POST['cat'];
+		$result = array();
         foreach ($data AS $key => $line)
         {
 			if ($key != 0)//第一行
@@ -344,40 +346,41 @@ elseif ($_REQUEST['act'] == 'upload')
 				{
 					$line = ecs_iconv($_POST['charset'], 'UTF8', $line);
 				}	
-				$arry = str_getcsv($line);	
-		
+				$arry = str_getcsv($line);
+
+                $result['goods_sn'] = $arry[0];
 				$result['goods_name'] = $arry[1];
-				$result['goods_name_en'] = $arry[2];				
-				$result['goods_sn'] = $arry[0];
+				$result['goods_name_en'] = $arry[2];
 				$result['brand_name'] = $arry[3];
-				$result['market_price'] = $arry[7];
-				$result['shop_price'] = $arry[9];
-				$result['price_after_tax'] = $arry[8];
-				$result['goods_weight'] = $arry[6];	
-				$result['goods_spec'] = $arry[5];	
-				$result['upc'] = '';					
-				$result['goods_manufactory'] = $arry[4];				
-				$result['integral'] = 0;
-				$result['goods_thumb'] = $arry[12];
-				$result['goods_img'] = $arry[13];
-				$result['original_img'] = $arry[13];				
-				$result['preserve_time'] = $arry[10];	
-				$result['preserve_method'] = $arry[11];					
-				$result['keywords'] = '';
-				$result['goods_brief'] = '';
-				$result['goods_desc'] = '';
-				$result['goods_number'] = '';
-				$result['warn_number'] = '';
-				$result['is_best'] = 0;
-				$result['is_new'] = 0;
-				$result['is_hot'] = 0;
-				$result['is_on_sale'] = 1;
-				$result['is_alone_sale'] = 1;
-				$result['is_real'] = 1;
-				$result['cat_id'] = $arry[14];
+				$result['market_price'] = $arry[4];
+				$result['shop_price'] = $arry[6];
+				$result['price_after_tax'] = $arry[5];
+				$result['integral'] = $arry[7] ? $arry[7] : 0;
+				$result['keywords'] = $arry[8];
+				$result['goods_brief'] = $arry[9];
+				$result['goods_desc'] = $arry[10];
+                $result['goods_desc_en'] = $arry[11];
+                $result['goods_weight'] = $arry[12];
+				$result['goods_number'] = $arry[13];
+				$result['warn_number'] = $arry[14];
+				$result['is_best'] = $arry[15] ? $arry[15] : 0;
+				$result['is_new'] = $arry[16] ? $arry[16] : 0;
+				$result['is_hot'] = $arry[17] ? $arry[17] : 0;
+				$result['is_on_sale'] = $arry[18] ? $arry[18] : 1;
+				$result['is_alone_sale'] = $arry[19] ? $arry[19] : 1;
+                $result['goods_spec'] = $arry[20];
+                $result['upc'] = $arry[21];
+                $result['goods_manufactory'] = $arry[22];
+                $result['goods_thumb'] = $arry[23];
+                $result['goods_img'] = $arry[24];
+                $result['original_img'] = $arry[25];
+                $result['preserve_time'] = $arry[26];
+                $result['preserve_method'] = $arry[27];
+                $result['cat_id'] = $arry[28] ? $arry[28] : $cat_id;
+				$result['is_real'] = $arry[29] ? $arry[29] : 1;
 				
 				$goods_list[] = $result;
-			}		
+			}
 		}
 		$smarty->assign('goods_class', $_LANG['g_class']);
 		$smarty->assign('goods_list', $goods_list);
@@ -911,9 +914,11 @@ elseif ($_REQUEST['act'] == 'download')
     admin_priv('goods_batch');
 
     // 文件标签
-    // Header("Content-type: application/octet-stream");
-    header("Content-type: application/vnd.ms-excel; charset=utf-8");
-    Header("Content-Disposition: attachment; filename=goods_list.csv");
+    header("Content-type: application/vnd.ms-excel; charset=utf8");
+    header("Content-Disposition: attachment; filename=goods_list.csv");
+    header("Content-Type: application/force-download");
+    header("Content-Type: application/octet-stream");
+    header("Content-Type: application/download");
 
     // 下载
     if ($_GET['charset'] != $_CFG['lang'])
@@ -930,8 +935,9 @@ elseif ($_REQUEST['act'] == 'download')
         /* 创建字符集转换对象 */
         if ($_GET['charset'] == 'zh_cn' || $_GET['charset'] == 'zh_tw')
         {
-            $to_charset = $_GET['charset'] == 'zh_cn' ? 'GB2312' : 'BIG5';
-            echo ecs_iconv(EC_CHARSET, $to_charset, join(',', $_LANG['upload_goods']));
+            $to_charset = 'utf8';
+            $content = ecs_iconv(EC_CHARSET, $to_charset, join(',', $_LANG['upload_goods']));
+            echo $content;
         }
         else
         {
@@ -950,7 +956,7 @@ elseif ($_REQUEST['act'] == 'download')
 
 elseif ($_REQUEST['act'] == 'get_goods')
 {
-    $filter = &new stdclass;
+    $filter = new stdclass;
 
     $filter->cat_id = intval($_GET['cat_id']);
     $filter->brand_id = intval($_GET['brand_id']);
