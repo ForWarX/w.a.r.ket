@@ -18,5 +18,3 @@ $smarty->assign('categories',       $cat_arry); // ·ÖÀàÊ÷
 $smarty->display('b2b.dwt'); //diaplay
 
 
-
-brand_search
