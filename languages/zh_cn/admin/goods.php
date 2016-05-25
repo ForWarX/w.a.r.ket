@@ -72,6 +72,7 @@ $_LANG['is_on_sale'] = '上架';
 $_LANG['goods_number'] = '库存';
 
 $_LANG['copy'] = '复制';
+$_LANG['full_copy'] = '全复制';
 $_LANG['item_list'] = '货品列表';
 
 $_LANG['integral'] = '积分额度';

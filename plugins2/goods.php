@@ -89,7 +89,7 @@ if ($_REQUEST['act'] == 'list' || $_REQUEST['act'] == 'trash')
 //-- 添加新商品 编辑商品
 /*------------------------------------------------------ */
 
-elseif ($_REQUEST['act'] == 'add' || $_REQUEST['act'] == 'edit' || $_REQUEST['act'] == 'copy')
+elseif ($_REQUEST['act'] == 'add' || $_REQUEST['act'] == 'edit' || $_REQUEST['act'] == 'copy' || $_REQUEST['act'] == 'full_copy')
 {
     include_once(ROOT_PATH . 'includes/fckeditor/fckeditor.php'); // 包含 html editor 类文件
 
@@ -277,7 +277,7 @@ elseif ($_REQUEST['act'] == 'add' || $_REQUEST['act'] == 'edit' || $_REQUEST['ac
         }
 
         /* 如果是复制商品，处理 */
-        if ($_REQUEST['act'] == 'copy')
+        if ($is_copy)
         {
             // 商品信息
             $goods['goods_id'] = 0;
@@ -355,6 +355,9 @@ elseif ($_REQUEST['act'] == 'add' || $_REQUEST['act'] == 'edit' || $_REQUEST['ac
             {
                 $db->autoExecute($ecs->table('goods_attr'), addslashes_deep($row), 'INSERT');
             }
+        }
+        else if ($_REQUEST['act'] == 'full_copy') {
+            $goods['goods_id'] = 0;
         }
 
         // 扩展分类
@@ -1162,7 +1165,7 @@ elseif ($_REQUEST['act'] == 'insert' || $_REQUEST['act'] == 'update')
     if (!$is_insert && isset($_POST['old_img_order']))
     {//print "vvvv";showr($_POST);
         foreach ($_POST['old_img_order'] AS $img_id => $img_order)
-        {	
+        {
             $sql = "UPDATE " . $ecs->table('goods_gallery') . " SET img_order = '$img_order' WHERE img_id = '$img_id' LIMIT 1";
             $db->query($sql);
         }

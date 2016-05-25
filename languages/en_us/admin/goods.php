@@ -75,6 +75,7 @@ $_LANG['is_on_sale'] ='On sale';
 $_LANG['goods_number'] ='Stock';
 
 $_LANG['copy'] ='Copy';
+$_LANG['full_copy'] = 'Full Copy';
 $_LANG['item_list'] = 'Item List';
 
 $_LANG['integral'] ='Points limit';
