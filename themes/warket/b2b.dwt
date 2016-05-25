@@ -39,7 +39,6 @@
 <!-- 页脚 + 购物车 -->
     <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
         <!-- slide js -->
-
         <script>
             /*$(document).ready(function () {
              var options = {
