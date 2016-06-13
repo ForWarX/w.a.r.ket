@@ -445,6 +445,7 @@
 							</tr>
 						</table>
 					</div>
+              <!--
 					<div class="blank anim-tag"></div>
 					<div class="flowBox-new anim-tag">
 						<h6><span>配送时间</span></h6>
@@ -461,9 +462,9 @@
 									<div class="time-color">
 										<dl class="one-color">
 											<dt class="date-t01" style="width:75px;">时间段</dt>
-											<!-- {foreach from=$shipping_time_list item=time} -->
+											{foreach from=$shipping_time_list item=time}
 												<dt>{$time.mon}-{$time.day}<br>{$time.weekday}</dt>
-											<!--{/foreach}-->
+											{/foreach}
 										</dl>
 										<!-- 别删除，这段可作为参考
 										<dl>
@@ -485,21 +486,23 @@
 											</dd>
 										</dl>
 										别删除，这段可作为参考结束 -->
-										<!--{foreach from=$shipping_time_period item=period}-->
+                                <!--<!--
+										{foreach from=$shipping_time_period item=period}
 											<dl>
 												<dt class="date-t01" style="width:75px;">{$period.from}:00-{$period.to}:00</dt>
-												<!--{foreach from=$shipping_time_list item=time}-->
+												{foreach from=$shipping_time_list item=time}
 													<dd date="{$time.year}-{$time.mon}-{$time.day}" time="{$period.from}-{$period.to}" datev="{$time.mon}-{$time.day}|{$time.weekday}" timev="{$period.from}:00-{$period.to}:00" eventclick="true" class="">
 														<span id="{$time.year}-{$time.mon}-{$time.day}-{$period.from}-{$period.to}" class="dateri-yes"></span>
 													</dd>
-												<!--{/foreach}-->
+												{/foreach}
 											</dl>
-										<!--{/foreach}-->
+										{/foreach}
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
+                -->
 					<div class="blank anim-tag"></div>
 				<!--{else}-->
 					<input name="shipping" type="radio" value = "-1" checked="checked"  style="display:none"/>

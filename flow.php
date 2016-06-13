@@ -1031,6 +1031,7 @@ elseif ($_REQUEST['step'] == 'checkout')
     $cod_disabled      = true;
 
     /*取得配送时间*/
+    /* 实际流程难以实现所以取消
 	include_once('includes/lib_time.php');
 	$date_str = array("周一", "周二", "周三", "周四", "周五", "周六", "周日");
 	$date_info = local_getdate(gmtime());
@@ -1069,6 +1070,7 @@ elseif ($_REQUEST['step'] == 'checkout')
 	$ar_period[] = array("from" => "20", "to" => "21");
 	$ar_period[] = array("from" => "21", "to" => "22");
 	$smarty->assign('shipping_time_period', $ar_period);
+    */
 	
 	// 查看购物车中是否全为免运费商品，若是则把运费赋为零
     $sql = 'SELECT count(*) FROM ' . $ecs->table('cart') . " WHERE `session_id` = '" . SESS_ID. "' AND `extension_code` != 'package_buy' AND `is_shipping` = 0";

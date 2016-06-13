@@ -625,6 +625,7 @@ function order_fee($order, $goods, $consignee)
     /* 税额 */
     if (!empty($order['need_inv']) && $order['inv_type'] != '')
     {
+        // 发票
         /* 查税率 */
         $rate = 0;
         foreach ($GLOBALS['_CFG']['invoice_type']['type'] as $key => $type)
@@ -635,10 +636,13 @@ function order_fee($order, $goods, $consignee)
                 break;
             }
         }
-        if ($rate > 0)
-        {
-            $total['tax'] = $rate * $total['goods_price'];
-        }
+    } else {
+        // 正常的税
+        $rate = 0.13;
+    }
+    if ($rate > 0)
+    {
+        $total['tax'] = $rate * $total['goods_price'];
     }
     $total['tax_formated'] = price_format($total['tax'], false);
 

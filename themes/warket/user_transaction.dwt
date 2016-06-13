@@ -466,9 +466,8 @@
                 <td align="right" bgcolor="#ffffff">{$lang.sign_building}：</td>
                 <td align="left" bgcolor="#ffffff"><input name="sign_building" class="inputBg" type="text" value="{$order.sign_building|escape}" size="25" />
                 </td>
-                <td align="right" bgcolor="#ffffff">{$lang.deliver_goods_time}：</td>
-                <td align="left" bgcolor="#ffffff"><input name="best_time" type="text" class="inputBg" value="{$order.best_time|escape}" size="25" />
-                </td>
+                <!--<td align="right" bgcolor="#ffffff">{$lang.deliver_goods_time}：</td>
+                <td align="left" bgcolor="#ffffff"><input name="best_time" type="text" class="inputBg" value="{$order.best_time|escape}" size="25" /></td>-->
               </tr>
               <!-- {/if}-->
               <tr>
@@ -506,8 +505,9 @@
             <tr>
               <td align="right" bgcolor="#ffffff" >{$lang.sign_building}：</td>
               <td align="left" bgcolor="#ffffff">{$order.sign_building} </td>
+                <!--
               <td align="right" bgcolor="#ffffff" >{$lang.deliver_goods_time}：</td>
-              <td align="left" bgcolor="#ffffff">{$order.best_time}</td>
+              <td align="left" bgcolor="#ffffff">{$order.best_time}</td>-->
             </tr>
             <!--{/if}-->
           </table>
