@@ -25,7 +25,7 @@
 </div>
 <!--left end-->
 <div style="height: 10px;"></div>
-<!--right-->
+<!--right
 <div style="width: 100%;">
     <a href="#">
         <img id="flyer_img" style="width: 230px;;height:230px;border: 1px solid lightgrey;">
@@ -52,7 +52,22 @@
     <a href="#">
         <img id="flyer_img" style="width: 230px;;height:230px;border: 1px solid lightgrey;">
     </a>
+</div>-->
+<div style="width: 100%;">
+    <img src="themes/warket/images/flyer june 3/11.jpg" style="width: 930px;;height:1500px;border: 1px solid lightgrey;">
+    <img src="themes/warket/images/flyer june 3/12.jpg" style="width: 930px;;height:1500px;border: 1px solid lightgrey;margin-left: 21%;">
+    <img src="themes/warket/images/flyer june 3/1.png" style="width: 930px;;height:1500px;border: 1px solid lightgrey;margin-left: 21%;">
+    <img src="themes/warket/images/flyer june 3/2.png" style="width: 930px;;height:1500px;border: 1px solid lightgrey;margin-left: 21%;">
+    <img src="themes/warket/images/flyer june 3/3.png" style="width: 930px;;height:1500px;border: 1px solid lightgrey;margin-left: 21%;">
+    <img src="themes/warket/images/flyer june 3/4.png" style="width: 930px;;height:1500px;border: 1px solid lightgrey;margin-left: 21%;">
+    <img src="themes/warket/images/flyer june 3/5.png" style="width: 930px;;height:1500px;border: 1px solid lightgrey;margin-left: 21%;">
+    <img src="themes/warket/images/flyer june 3/6.png" style="width: 930px;;height:1500px;border: 1px solid lightgrey;margin-left: 21%;">
+    <img src="themes/warket/images/flyer june 3/7.png" style="width: 930px;;height:1500px;border: 1px solid lightgrey;margin-left: 21%;">
+    <img src="themes/warket/images/flyer june 3/8.png" style="width: 930px;;height:1500px;border: 1px solid lightgrey;margin-left: 21%;">
+    <img src="themes/warket/images/flyer june 3/9.png" style="width: 930px;;height:1500px;border: 1px solid lightgrey;margin-left: 21%;">
+    <img src="themes/warket/images/flyer june 3/10.png" style="width: 930px;;height:1500px;border: 1px solid lightgrey;margin-left: 21%;">
 </div>
+<!--
 <script type="text/javascript">
     $(function(){
         $("#flyer_img").click(function(){
@@ -70,6 +85,7 @@
         });
     });
 </script>
+-->
 <!-- right end-->
 <div class="blank"></div>
 <!-- 页脚 + 购物车 -->
