@@ -380,11 +380,11 @@
               <!-- {if $order.discount gt 0} 折扣 -->
               - {$lang.discount}: {$order.formated_discount}
               <!-- {/if} -->
-              <!-- {if $order.tax gt 0} -->
-              + {$lang.tax}: {$order.formated_tax}
-              <!-- {/if} -->
               <!-- {if $order.shipping_fee > 0} -->
               + {$lang.shipping_fee}: {$order.formated_shipping_fee}
+              <!-- {/if} -->
+              <!-- {if $order.tax gt 0} -->
+              + {$lang.tax}: {$order.formated_tax}
               <!-- {/if} -->
               <!-- {if $order.insure_fee > 0} -->
               + {$lang.insure_fee}: {$order.formated_insure_fee}

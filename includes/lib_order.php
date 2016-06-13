@@ -622,30 +622,6 @@ function order_fee($order, $goods, $consignee)
     }
     $total['discount_formated'] = price_format($total['discount'], false);
 
-    /* 税额 */
-    if (!empty($order['need_inv']) && $order['inv_type'] != '')
-    {
-        // 发票
-        /* 查税率 */
-        $rate = 0;
-        foreach ($GLOBALS['_CFG']['invoice_type']['type'] as $key => $type)
-        {
-            if ($type == $order['inv_type'])
-            {
-                $rate = floatval($GLOBALS['_CFG']['invoice_type']['rate'][$key]) / 100;
-                break;
-            }
-        }
-    } else {
-        // 正常的税
-        $rate = 0.13;
-    }
-    if ($rate > 0)
-    {
-        $total['tax'] = $rate * $total['goods_price'];
-    }
-    $total['tax_formated'] = price_format($total['tax'], false);
-
     /* 包装费用 */
     if (!empty($order['pack_id']))
     {
@@ -726,6 +702,30 @@ function order_fee($order, $goods, $consignee)
 
     $total['shipping_fee_formated']    = price_format($total['shipping_fee'], false);
     $total['shipping_insure_formated'] = price_format($total['shipping_insure'], false);
+
+    /* 税额 */
+    if (!empty($order['need_inv']) && $order['inv_type'] != '')
+    {
+        // 发票
+        /* 查税率 */
+        $rate = 0;
+        foreach ($GLOBALS['_CFG']['invoice_type']['type'] as $key => $type)
+        {
+            if ($type == $order['inv_type'])
+            {
+                $rate = floatval($GLOBALS['_CFG']['invoice_type']['rate'][$key]) / 100;
+                break;
+            }
+        }
+    } else {
+        // 正常的税
+        $rate = 0.13;
+    }
+    if ($rate > 0)
+    {
+        $total['tax'] = $rate * ($total['goods_price'] + $total['shipping_fee']);
+    }
+    $total['tax_formated'] = price_format($total['tax'], false);
 
     // 购物车中的商品能享受红包支付的总额
     $bonus_amount = compute_discount_amount();
