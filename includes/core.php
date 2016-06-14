@@ -143,4 +143,17 @@ function remove_ks($name){
 		return $name; 
 }
 
+/**
+ * 把obj转换成数组
+ * @param $obj
+ * @return array
+ */
+function object_to_array($obj) {
+	$arr = is_object($obj) ? get_object_vars($obj) : $obj;
+	if (is_array($arr)) {
+		return array_map(__FUNCTION__, $arr);
+	} else {
+		return $arr;
+	}
+}
 ?>

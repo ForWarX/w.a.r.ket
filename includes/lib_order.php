@@ -132,9 +132,10 @@ function shipping_area_info($shipping_id, $region_id_list)
  * @param   float   $goods_weight       商品重量
  * @param   float   $goods_amount       商品金额
  * @param   float   $goods_number       商品数量
+ * @param   string  $zipcode            邮编
  * @return  float   运费
  */
-function shipping_fee($shipping_code, $shipping_config, $goods_weight, $goods_amount, $goods_number='')
+function shipping_fee($shipping_code, $shipping_config, $goods_weight, $goods_amount, $goods_number='', $zipcode=null)
 {
     if (!is_array($shipping_config))
     {
@@ -148,7 +149,11 @@ function shipping_fee($shipping_code, $shipping_config, $goods_weight, $goods_am
 
         $obj = new $shipping_code($shipping_config);
 
-        return $obj->calculate($goods_weight, $goods_amount, $goods_number);
+        if ($zipcode != null) {
+            return $obj->calculate($goods_weight, $goods_amount, $goods_number, $zipcode);
+        } else {
+            return $obj->calculate($goods_weight, $goods_amount, $goods_number);
+        }
     }
     else
     {
@@ -622,6 +627,30 @@ function order_fee($order, $goods, $consignee)
     }
     $total['discount_formated'] = price_format($total['discount'], false);
 
+    /* 税额 */
+    if (!empty($order['need_inv']) && $order['inv_type'] != '')
+    {
+        // 发票
+        /* 查税率 */
+        $rate = 0;
+        foreach ($GLOBALS['_CFG']['invoice_type']['type'] as $key => $type)
+        {
+            if ($type == $order['inv_type'])
+            {
+                $rate = floatval($GLOBALS['_CFG']['invoice_type']['rate'][$key]) / 100;
+                break;
+            }
+        }
+    } else {
+        // 正常的税
+        $rate = 0.13;
+    }
+    if ($rate > 0)
+    {
+        $total['tax'] = $rate * $total['goods_price'];
+    }
+    $total['tax_formated'] = price_format($total['tax'], false);
+
     /* 包装费用 */
     if (!empty($order['pack_id']))
     {
@@ -681,7 +710,16 @@ function order_fee($order, $goods, $consignee)
             $sql = 'SELECT count(*) FROM ' . $GLOBALS['ecs']->table('cart') . " WHERE  `session_id` = '" . SESS_ID. "' AND `extension_code` != 'package_buy' AND `is_shipping` = 0";
             $shipping_count = $GLOBALS['db']->getOne($sql);
 
-            $total['shipping_fee'] = ($shipping_count == 0 AND $weight_price['free_shipping'] == 1) ?0 :  shipping_fee($shipping_info['shipping_code'],$shipping_info['configure'], $weight_price['weight'], $total['goods_price'], $weight_price['number']);
+            if ($shipping_count == 0 AND $weight_price['free_shipping'] == 1) {
+                $total['shipping_fee'] = 0;
+            } else {
+                $ship_code = $shipping_info['shipping_code'];
+                if ($ship_code=='cp_ep' || $ship_code=='cp_pc' || $ship_code=='cp_rp' || $ship_code=='cp_xp') { // canadapost
+                    $total['shipping_fee'] = shipping_fee($shipping_info['shipping_code'], $shipping_info['configure'], $weight_price['weight'], $total['goods_price'], $weight_price['number'], $consignee['zipcode']);
+                } else {
+                    $total['shipping_fee'] = shipping_fee($shipping_info['shipping_code'], $shipping_info['configure'], $weight_price['weight'], $total['goods_price'], $weight_price['number']);
+                }
+            }
 
             if (!empty($order['need_insure']) && $shipping_info['insure'] > 0)
             {
@@ -702,30 +740,6 @@ function order_fee($order, $goods, $consignee)
 
     $total['shipping_fee_formated']    = price_format($total['shipping_fee'], false);
     $total['shipping_insure_formated'] = price_format($total['shipping_insure'], false);
-
-    /* 税额 */
-    if (!empty($order['need_inv']) && $order['inv_type'] != '')
-    {
-        // 发票
-        /* 查税率 */
-        $rate = 0;
-        foreach ($GLOBALS['_CFG']['invoice_type']['type'] as $key => $type)
-        {
-            if ($type == $order['inv_type'])
-            {
-                $rate = floatval($GLOBALS['_CFG']['invoice_type']['rate'][$key]) / 100;
-                break;
-            }
-        }
-    } else {
-        // 正常的税
-        $rate = 0.13;
-    }
-    if ($rate > 0)
-    {
-        $total['tax'] = $rate * ($total['goods_price'] + $total['shipping_fee']);
-    }
-    $total['tax_formated'] = price_format($total['tax'], false);
 
     // 购物车中的商品能享受红包支付的总额
     $bonus_amount = compute_discount_amount();
@@ -3306,5 +3320,87 @@ function judge_package_stock($package_id, $package_num = 1)
     }
 
     return false;
+}
+
+/**
+ * canadapost获取包裹邮寄信息
+ * @param int $weight
+ * @param null $postcode
+ * @param string $service    canadapost的服务编号：DOM.RP | DOM.EP | DOM.XP | DOM.PC
+ * @param int $length
+ * @param int $width
+ * @param int $height
+ * @return bool
+ */
+function canadapost_get_shipping_info($weight=0, $postcode=null, $service=null, $length=0, $width=0, $height=0) {
+    if ($weight == 0 || $postcode == null) return null;
+    $has_dimension = $length > 0 && $width > 0 && $height > 0;
+    if ($has_dimension) {
+        // canadapost的api规定必须按长中短的顺序排列
+        $has_dimension = $length > $width;
+        if (!$has_dimension) return null;
+        $has_dimension = $width > $height;
+        if (!$has_dimension) return null;
+    }
+
+    $username = '5ddd2a5445a379c6';
+    $password = 'ab675c3175bc4877d4c3e9';
+    $custom_no = '0008246386';
+    $url = 'https://soa-gw.canadapost.ca/rs/ship/price';
+    $origin_post = 'L3R2Z5'; // 出发地邮编
+
+    // 提交的xml数据
+    $post_data = '<?xml version="1.0" encoding="utf-8"?>
+        <mailing-scenario xmlns="http://www.canadapost.ca/ws/ship/rate-v3">
+            <customer-number>' . $custom_no . '</customer-number>
+            <parcel-characteristics>
+                <weight>' . $weight . '</weight>';
+    if ($has_dimension) {
+        $post_data .= '<dimensions>
+                    <length>' . $length . '</length>
+                    <width>' . $width . '</width>
+                    <height>' . $height . '</height>
+                </dimensions>';
+    }
+    $post_data .= '</parcel-characteristics>';
+    if ($service != null) {
+        $post_data .= '<services>
+                <service-code>' . $service . '</service-code>
+            </services>';
+    }
+    $post_data .= '<origin-postal-code>' . $origin_post . '</origin-postal-code>
+            <destination>
+                <domestic>
+                    <postal-code>' . $postcode . '</postal-code>
+                </domestic>
+            </destination>
+        </mailing-scenario>';
+
+    $header[]="Accept: application/vnd.cpc.ship.rate-v3+xml";
+    $header[]="Content-Type: application/vnd.cpc.ship.rate-v3+xml";
+    $header[]="Authorization: Basic " . base64_encode("$username:$password");
+    $header[]="Accept-language: en-CA";
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_USERPWD, "$username:$password");
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+    $data = curl_exec($ch);
+    $info = curl_getinfo($ch);
+    curl_close($ch);
+
+    if ($info['http_code'] == 200) {
+        $xml = new SimpleXMLElement($data);
+        $result = object_to_array($xml);
+        return $result;
+    } else {
+        return false;
+    }
 }
 ?>
