@@ -47,7 +47,7 @@
               <th bgcolor="#ffffff">{$lang.number}</th>
               <th bgcolor="#ffffff">{$lang.subtotal}</th>
               <th bgcolor="#ffffff">{$lang.handle}</th>
-            </tr>	
+            </tr>
             <!-- {foreach from=$goods_list item=goods} -->
             <tr><td colspan="8"><hr></td></tr>
             <tr>
@@ -221,6 +221,7 @@
     }
   }
   </script>
+
   <div class="block" >
     <div class="flowBox-new">
     <h6><span>{$lang.goods_fittings}</span></h6>
@@ -368,10 +369,10 @@
 						<!-- {/foreach} -->
 						<!-- {if !$gb_deposit} 团购且有保证金时不显示 -->
 							<tr>
-								<td bgcolor="#ffffff" colspan="7">
-									<!-- {if $discount gt 0} -->{$your_discount}<br /><!-- {/if} -->
-									{$shopping_money}<!-- {if $show_marketprice} -->，{$market_price_desc}<!--{/if}-->
-								</td>
+                              <td bgcolor="#ffffff" colspan="7">
+                                <!-- {if $discount gt 0} -->{$your_discount}<br /><!-- {/if} -->
+                                {$shopping_money}<!-- {if $show_marketprice}--><!--，市场价后面的描述market_price_desc{/if}-->
+                              </td>
 							</tr>
 						<!-- {/if} -->
 					</table>
