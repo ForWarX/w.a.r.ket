@@ -1295,4 +1295,10 @@ function write_static_cache($cache_name, $caches)
     file_put_contents($cache_file_path, $content, LOCK_EX);
 }
 
+// 字符串删除删除空格
+function trimall($str)
+{
+    $qian=array(" ","　","\t","\n","\r");$hou=array("","","","","");
+    return str_replace($qian,$hou,$str);
+}
 ?>

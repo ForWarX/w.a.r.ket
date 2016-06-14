@@ -627,30 +627,6 @@ function order_fee($order, $goods, $consignee)
     }
     $total['discount_formated'] = price_format($total['discount'], false);
 
-    /* 税额 */
-    if (!empty($order['need_inv']) && $order['inv_type'] != '')
-    {
-        // 发票
-        /* 查税率 */
-        $rate = 0;
-        foreach ($GLOBALS['_CFG']['invoice_type']['type'] as $key => $type)
-        {
-            if ($type == $order['inv_type'])
-            {
-                $rate = floatval($GLOBALS['_CFG']['invoice_type']['rate'][$key]) / 100;
-                break;
-            }
-        }
-    } else {
-        // 正常的税
-        $rate = 0.13;
-    }
-    if ($rate > 0)
-    {
-        $total['tax'] = $rate * $total['goods_price'];
-    }
-    $total['tax_formated'] = price_format($total['tax'], false);
-
     /* 包装费用 */
     if (!empty($order['pack_id']))
     {
@@ -740,6 +716,30 @@ function order_fee($order, $goods, $consignee)
 
     $total['shipping_fee_formated']    = price_format($total['shipping_fee'], false);
     $total['shipping_insure_formated'] = price_format($total['shipping_insure'], false);
+
+    /* 税额 */
+    if (!empty($order['need_inv']) && $order['inv_type'] != '')
+    {
+        // 发票
+        /* 查税率 */
+        $rate = 0;
+        foreach ($GLOBALS['_CFG']['invoice_type']['type'] as $key => $type)
+        {
+            if ($type == $order['inv_type'])
+            {
+                $rate = floatval($GLOBALS['_CFG']['invoice_type']['rate'][$key]) / 100;
+                break;
+            }
+        }
+    } else {
+        // 正常的税
+        $rate = 0.13;
+    }
+    if ($rate > 0)
+    {
+        $total['tax'] = $rate * ($total['goods_price'] + $total['shipping_fee']);
+    }
+    $total['tax_formated'] = price_format($total['tax'], false);
 
     // 购物车中的商品能享受红包支付的总额
     $bonus_amount = compute_discount_amount();
@@ -3334,6 +3334,7 @@ function judge_package_stock($package_id, $package_num = 1)
  */
 function canadapost_get_shipping_info($weight=0, $postcode=null, $service=null, $length=0, $width=0, $height=0) {
     if ($weight == 0 || $postcode == null) return null;
+    $postcode = trimall($postcode);
     $has_dimension = $length > 0 && $width > 0 && $height > 0;
     if ($has_dimension) {
         // canadapost的api规定必须按长中短的顺序排列
@@ -3347,7 +3348,7 @@ function canadapost_get_shipping_info($weight=0, $postcode=null, $service=null, 
     $password = 'ab675c3175bc4877d4c3e9';
     $custom_no = '0008246386';
     $url = 'https://soa-gw.canadapost.ca/rs/ship/price';
-    $origin_post = 'L3R2Z5'; // 出发地邮编
+    $origin_post = 'M1T3K5'; // 出发地邮编
 
     // 提交的xml数据
     $post_data = '<?xml version="1.0" encoding="utf-8"?>
