@@ -1,4 +1,4 @@
-<?php exit;?>a:3:{s:8:"template";a:1:{i:0;s:58:"/var/www/html/warket/mobile/themes/default/article_cat.dwt";}s:7:"expires";i:1439882915;s:8:"maketime";i:1439879315;}<!DOCTYPE html>
+<?php exit;?>a:3:{s:8:"template";a:1:{i:0;s:58:"/var/www/html/warket/mobile/themes/default/article_cat.dwt";}s:7:"expires";i:1490912399;s:8:"maketime";i:1490908799;}<!DOCTYPE html>
 <html>
 <head>
 <meta name="Generator" content="ECSHOP v2.7.3" />
@@ -32,25 +32,25 @@
   <div class="list_box padd1 radius10" style="padding-top:0;padding-bottom:0;"> 
      
      
-    <a href="article-23.html" class="clearfix"> <span>产品质量保证</span><i></i> </a> 
+    <a href="article-48.html" class="clearfix"> <span>[内容放在这里]</span><i></i> </a> 
      
-    <a href="article-12.html" class="clearfix"> <span>如何分辨原装电池</span><i></i> </a> 
+    <a href="article-47.html" class="clearfix"> <span>关于微市</span><i></i> </a> 
      
-    <a href="article-36.html" class="clearfix"> <span>隐私声明</span><i></i> </a> 
+    <a href="article-46.html" class="clearfix"> <span>配送时间</span><i></i> </a> 
      
-    <a href="article-26.html" class="clearfix"> <span>投诉与建议</span><i></i> </a> 
+    <a href="article-45.html" class="clearfix"> <span>配送范围</span><i></i> </a> 
      
-    <a href="article-25.html" class="clearfix"> <span>选机咨询</span><i></i> </a> 
+    <a href="article-44.html" class="clearfix"> <span>PayPal</span><i></i> </a> 
      
-    <a href="article-24.html" class="clearfix"> <span>网站故障报告</span><i></i> </a> 
+    <a href="article-43.html" class="clearfix"> <span>支付宝外币支付</span><i></i> </a> 
      
-    <a href="article-22.html" class="clearfix"> <span>售后服务保证</span><i></i> </a> 
+    <a href="article-42.html" class="clearfix"> <span>信用卡支付</span><i></i> </a> 
      
-    <a href="article-21.html" class="clearfix"> <span>退换货原则</span><i></i> </a> 
+    <a href="article-41.html" class="clearfix"> <span>查询订单状态</span><i></i> </a> 
      
-    <a href="article-20.html" class="clearfix"> <span>我的订单</span><i></i> </a> 
+    <a href="article-40.html" class="clearfix"> <span>联系客服</span><i></i> </a> 
      
-    <a href="article-19.html" class="clearfix"> <span>我的收藏</span><i></i> </a> 
+    <a href="article-39.html" class="clearfix"> <span>购物流程</span><i></i> </a> 
      
      
   </div>

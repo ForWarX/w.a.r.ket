@@ -57,9 +57,9 @@
        <dd>&nbsp;&nbsp;<a href="{$childer.url}">{$childer.name|escape:html}</a></dd>
        <!--{/foreach}-->
      <!--{/foreach}-->
-
+       
        </dl>
-    <!--{/foreach}-->
+    <!--{/foreach}--> 
   </div>
  </div>
 </div>
@@ -79,7 +79,7 @@
       <li class="topimg">
       <a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" class="samllimg" /></a>
       </li>
-	<!-- {/if} -->
+	<!-- {/if} -->		
       <li {if $smarty.foreach.top_goods.iteration<4}class="iteration1"{/if}>
       <a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_name}</a><br />
       {$lang.shop_price}<font class="f1">{$goods.price}</font><br />

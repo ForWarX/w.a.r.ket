@@ -26,8 +26,8 @@
     </div>
     <div class="header_r header_search"> <a class="switchBtn switchBtn-album" href="javascript:void(0);"  onclick="changeCl(this)" style="opacity: 1;"> 切换 </a> </div>
   </header>
-  
-  
+  <?php echo $this->fetch('library/goods_list.lbi'); ?>
+  <?php echo $this->fetch('library/page_footer.lbi'); ?>
 </div>
 
 
@@ -87,14 +87,14 @@
       </div>
       <?php endif; ?> 
       
-      <?php $_from = $this->_var['filter_attr_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'filter_attr_0_48511600_1437775915');if (count($_from)):
-    foreach ($_from AS $this->_var['filter_attr_0_48511600_1437775915']):
+      <?php $_from = $this->_var['filter_attr_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'filter_attr_0_11956400_1442464696');if (count($_from)):
+    foreach ($_from AS $this->_var['filter_attr_0_11956400_1442464696']):
 ?>
       <div class="attr brandAttr">
-        <div class="attrKey"><?php echo htmlspecialchars($this->_var['filter_attr_0_48511600_1437775915']['filter_attr_name']); ?></div>
+        <div class="attrKey"><?php echo htmlspecialchars($this->_var['filter_attr_0_11956400_1442464696']['filter_attr_name']); ?></div>
         <div class="attrValues">
           <ul class="av-collapse filter_list">
-            <?php $_from = $this->_var['filter_attr_0_48511600_1437775915']['attr_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'attr');if (count($_from)):
+            <?php $_from = $this->_var['filter_attr_0_11956400_1442464696']['attr_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'attr');if (count($_from)):
     foreach ($_from AS $this->_var['attr']):
 ?> 
             <?php if ($this->_var['attr']['selected']): ?>

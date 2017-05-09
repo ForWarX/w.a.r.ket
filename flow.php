@@ -1080,12 +1080,12 @@ elseif ($_REQUEST['step'] == 'checkout')
     {
         $shipping_cfg = unserialize_config($val['configure']);
         $shipping_fee = ($shipping_count == 0 AND $cart_weight_price['free_shipping'] == 1) ? 0 : shipping_fee($val['shipping_code'], unserialize($val['configure']),
-        $cart_weight_price['weight'], $cart_weight_price['amount'], $cart_weight_price['number']);
+        $cart_weight_price['weight'], $cart_weight_price['amount'], $cart_weight_price['number'], $consignee['zipcode']);
 
         $shipping_list[$key]['format_shipping_fee'] = price_format($shipping_fee, false);
-        $shipping_list[$key]['shipping_fee']        = $shipping_fee;
-        $shipping_list[$key]['free_money']          = price_format($shipping_cfg['free_money'], false);
-        $shipping_list[$key]['insure_formated']     = strpos($val['insure'], '%') === false ?
+        $shipping_list[$key]['shipping_fee'] = $shipping_fee;
+        $shipping_list[$key]['free_money'] = price_format($shipping_cfg['free_money'], false);
+        $shipping_list[$key]['insure_formated'] = strpos($val['insure'], '%') === false ?
             price_format($val['insure'], false) : $val['insure'];
 
         /* 当前的配送方式是否支持保价 */

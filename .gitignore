@@ -2,3 +2,5 @@ temp/
 .idea
 data/config.php
 bigdump.php
+mobile/data/caches/
+*.sql

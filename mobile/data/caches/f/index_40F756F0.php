@@ -1,4 +1,4 @@
-<?php exit;?>a:3:{s:8:"template";a:6:{i:0;s:52:"/var/www/html/warket/mobile/themes/default/index.dwt";i:1;s:66:"/var/www/html/warket/mobile/themes/default/library/ad_position.lbi";i:2;s:69:"/var/www/html/warket/mobile/themes/default/library/recommend_best.lbi";i:3;s:68:"/var/www/html/warket/mobile/themes/default/library/recommend_new.lbi";i:4;s:68:"/var/www/html/warket/mobile/themes/default/library/recommend_hot.lbi";i:5;s:66:"/var/www/html/warket/mobile/themes/default/library/page_footer.lbi";}s:7:"expires";i:1441310050;s:8:"maketime";i:1441306450;}<!DOCTYPE html>
+<?php exit;?>a:3:{s:8:"template";a:6:{i:0;s:52:"/var/www/html/warket/mobile/themes/default/index.dwt";i:1;s:66:"/var/www/html/warket/mobile/themes/default/library/ad_position.lbi";i:2;s:69:"/var/www/html/warket/mobile/themes/default/library/recommend_best.lbi";i:3;s:68:"/var/www/html/warket/mobile/themes/default/library/recommend_new.lbi";i:4;s:68:"/var/www/html/warket/mobile/themes/default/library/recommend_hot.lbi";i:5;s:66:"/var/www/html/warket/mobile/themes/default/library/page_footer.lbi";}s:7:"expires";i:1493897242;s:8:"maketime";i:1493893642;}<!DOCTYPE html>
 <html>
 <head>
 <meta name="Generator" content="ECSHOP v2.7.3" />
@@ -289,27 +289,22 @@ TouchSlide({
                  
                 <span class="price_s"> ￥399元 </span> 
                                 <br>希思黎轻柔护肤西柚柔肤水...                </li>
-                                                <li><a href="goods-10.html"><img src="http://q.yunmoban.cn/images/201311/thumb_img/10_thumb_G_1385076352897.jpg" /></a>
-                <br/>
-                 
-                <span class="price_s"> ￥50元 </span> 
-                                <br>思亲肤90度卷长睫毛膏1...                </li>
-                </ul><ul>                                <li><a href="goods-13.html"><img src="http://q.yunmoban.cn/images/201311/thumb_img/13_thumb_G_1385076209182.jpg" /></a>
-                <br/>
-                 
-                <span class="price_s"> ￥109元 </span> 
-                                <br>欧莱雅绝配无暇粉底液N1...                </li>
                                                 <li><a href="goods-14.html"><img src="http://q.yunmoban.cn/images/201311/thumb_img/14_thumb_G_1385076093787.jpg" /></a>
                 <br/>
                  
                 <span class="price_s"> ￥99元 </span> 
                                 <br>谜尚红色BB霜21#50...                </li>
+                </ul><ul>                                <li><a href="goods-13.html"><img src="http://q.yunmoban.cn/images/201311/thumb_img/13_thumb_G_1385076209182.jpg" /></a>
+                <br/>
+                 
+                <span class="price_s"> ￥109元 </span> 
+                                <br>欧莱雅绝配无暇粉底液N1...                </li>
                                                 <li><a href="goods-8.html"><img src="http://q.yunmoban.cn/images/201311/thumb_img/8_thumb_G_1384988790593.gif" /></a>
                 <br/>
                  
                 <span class="price_s"> ￥238元 </span> 
                                 <br>香奈儿coco小姐唇膏（...                </li>
-                </ul><ul>                                <li><a href="goods-24.html"><img src="http://q.yunmoban.cn/images/201311/thumb_img/24_thumb_G_1385074818364.jpg" /></a>
+                                                <li><a href="goods-24.html"><img src="http://q.yunmoban.cn/images/201311/thumb_img/24_thumb_G_1385074818364.jpg" /></a>
                 <br/>
                  
                 <span class="price_s"> ￥240元 </span> 
@@ -354,7 +349,7 @@ TouchSlide({
   <p class="link region"> <a href="http://q.yunmoban.cn/?computer=1"> 电脑版 </a> <a href="./"> 触屏版 </a> <a href="#"> 苹果客户端 </a> <a class="#"> Android客户端 </a> </p>
   <p class="region"> 
      
-    &copy; 2005-2015 ECTouch企业版 版权所有，并保留所有权利。 </p>
+    &copy; 2005-2017 ECTouch企业版 版权所有，并保留所有权利。 </p>
   <!--<div class="favLink region"> <a href="http://www.ecmoban.com"> powered by ecmoban </a> </div>-->
 </div>
 <link href="themes/default/css/global_nav.css?v=20140408" type="text/css" rel="stylesheet"/>
@@ -432,118 +427,304 @@ function get_search_box(){
 </script> 
 <nav id="menu" style="display:None">
   <ul>
-        <li> <a href="category-153-b0.html"> 开学季 </a>
+        <li> <a href="category-145-b0.html"> 中华特产 </a>
       <ul>
-              </ul>
-    </li>
-        <li> <a href="category-145-b0.html"> 小卖部 </a>
-      <ul>
-                <li> <a href="category-154-b0.html"> 坚果 </a>
+                <li> <a href="category-155-b0.html"> 休闲零食/坚果/蜜饯 </a>
           <ul>
+                        <li> <a href="category-227-b0.html"> 膨化 </a> </li>
+                        <li> <a href="category-228-b0.html"> 蜜饯 </a> </li>
+                        <li> <a href="category-229-b0.html"> 猪/牛肉干 </a> </li>
+                        <li> <a href="category-269-b0.html"> 海苔 </a> </li>
+                        <li> <a href="category-270-b0.html"> 鱼干 </a> </li>
+                        <li> <a href="category-271-b0.html"> 豆干 </a> </li>
+                        <li> <a href="category-293-b0.html"> 果干 </a> </li>
+                        <li> <a href="category-295-b0.html"> 素肉干 </a> </li>
+                        <li> <a href="category-296-b0.html"> 坚果/炒货 </a> </li>
                       </ul>
         </li>
-                <li> <a href="category-155-b0.html"> 巧克力 </a>
+                <li> <a href="category-156-b0.html"> 饼干糕点 </a>
           <ul>
-                      </ul>
-        </li>
-                <li> <a href="category-156-b0.html"> 布丁&amp;果冻 </a>
-          <ul>
+                        <li> <a href="category-215-b0.html"> 饼干 </a> </li>
+                        <li> <a href="category-216-b0.html"> 曲奇 </a> </li>
+                        <li> <a href="category-217-b0.html"> 威化 </a> </li>
+                        <li> <a href="category-218-b0.html"> 薄脆 </a> </li>
+                        <li> <a href="category-219-b0.html"> 夹心 </a> </li>
+                        <li> <a href="category-220-b0.html"> 蛋卷 </a> </li>
+                        <li> <a href="category-221-b0.html"> 沙琪玛 </a> </li>
+                        <li> <a href="category-222-b0.html"> 蛋糕 </a> </li>
+                        <li> <a href="category-223-b0.html"> 派 </a> </li>
+                        <li> <a href="category-224-b0.html"> 面包 </a> </li>
+                        <li> <a href="category-225-b0.html"> 礼盒 </a> </li>
                       </ul>
         </li>
                 <li> <a href="category-157-b0.html"> 方便速食 </a>
           <ul>
+                        <li> <a href="category-207-b0.html"> 方便面 </a> </li>
+                        <li> <a href="category-208-b0.html"> 火腿肠 </a> </li>
+                        <li> <a href="category-209-b0.html"> 速食汤 </a> </li>
+                        <li> <a href="category-210-b0.html"> 八宝粥 </a> </li>
+                        <li> <a href="category-211-b0.html"> 肉罐头 </a> </li>
+                        <li> <a href="category-212-b0.html"> 水果罐头 </a> </li>
+                        <li> <a href="category-213-b0.html"> 方便饭 </a> </li>
+                        <li> <a href="category-214-b0.html"> 方便粉丝 </a> </li>
                       </ul>
         </li>
-                <li> <a href="category-158-b0.html"> 果干 </a>
+                <li> <a href="category-158-b0.html"> 牛奶乳品 </a>
           <ul>
+                        <li> <a href="category-261-b0.html"> 纯牛奶 </a> </li>
+                        <li> <a href="category-262-b0.html"> 酸奶 </a> </li>
+                        <li> <a href="category-263-b0.html"> 儿童奶 </a> </li>
+                        <li> <a href="category-264-b0.html"> 豆奶 </a> </li>
+                        <li> <a href="category-265-b0.html"> 风味奶 </a> </li>
+                        <li> <a href="category-266-b0.html"> 乳酸菌饮料 </a> </li>
+                        <li> <a href="category-267-b0.html"> 香蕉牛奶 </a> </li>
                       </ul>
         </li>
-                <li> <a href="category-159-b0.html"> 梅干 </a>
+                <li> <a href="category-159-b0.html"> 厨房调料/果酱/沙拉酱 </a>
           <ul>
-                        <li> <a href="category-173-b0.html"> 山楂 </a> </li>
-                        <li> <a href="category-174-b0.html"> 橄榄 </a> </li>
-                        <li> <a href="category-175-b0.html"> 腌果 </a> </li>
-                        <li> <a href="category-176-b0.html"> 话梅 </a> </li>
-                        <li> <a href="category-177-b0.html"> 陈皮 </a> </li>
+                        <li> <a href="category-173-b0.html"> 鸡精/味精 </a> </li>
+                        <li> <a href="category-174-b0.html"> 酱油 </a> </li>
+                        <li> <a href="category-175-b0.html"> 香油 </a> </li>
+                        <li> <a href="category-177-b0.html"> 醋 </a> </li>
+                        <li> <a href="category-188-b0.html"> 调味料 </a> </li>
+                        <li> <a href="category-189-b0.html"> 糖/盐 </a> </li>
+                        <li> <a href="category-190-b0.html"> 调味汁 </a> </li>
+                        <li> <a href="category-298-b0.html"> 辣椒油/酱 </a> </li>
+                        <li> <a href="category-300-b0.html"> 腐乳 </a> </li>
+                        <li> <a href="category-302-b0.html"> 酱菜 </a> </li>
+                        <li> <a href="category-346-b0.html"> 火锅调料 </a> </li>
                       </ul>
         </li>
-                <li> <a href="category-160-b0.html"> 海味 </a>
+                <li> <a href="category-160-b0.html"> 米/面/油/干货 </a>
           <ul>
-                      </ul>
-        </li>
-                <li> <a href="category-161-b0.html"> 糕点 </a>
-          <ul>
+                        <li> <a href="category-192-b0.html"> 食用油 </a> </li>
+                        <li> <a href="category-194-b0.html"> 面粉 </a> </li>
+                        <li> <a href="category-195-b0.html"> 面条 </a> </li>
+                        <li> <a href="category-197-b0.html"> 菌菇 </a> </li>
+                        <li> <a href="category-198-b0.html"> 木耳银耳 </a> </li>
+                        <li> <a href="category-200-b0.html"> 红枣/桂圆 </a> </li>
+                        <li> <a href="category-201-b0.html"> 枸杞 </a> </li>
+                        <li> <a href="category-205-b0.html"> 茶油 </a> </li>
+                        <li> <a href="category-206-b0.html"> 亚麻籽油 </a> </li>
+                        <li> <a href="category-299-b0.html"> 五谷杂粮 </a> </li>
+                        <li> <a href="category-303-b0.html"> 滋补食材 </a> </li>
+                        <li> <a href="category-328-b0.html"> 辣椒干 </a> </li>
+                        <li> <a href="category-330-b0.html"> 粉丝 </a> </li>
                       </ul>
         </li>
                 <li> <a href="category-162-b0.html"> 糖果 </a>
           <ul>
+                        <li> <a href="category-191-b0.html"> 奶糖 </a> </li>
+                        <li> <a href="category-230-b0.html"> 棒棒糖 </a> </li>
+                        <li> <a href="category-231-b0.html"> 口香糖 </a> </li>
+                        <li> <a href="category-232-b0.html"> 果冻 </a> </li>
+                        <li> <a href="category-233-b0.html"> 牛轧糖 </a> </li>
+                        <li> <a href="category-236-b0.html"> 夹心糖 </a> </li>
+                        <li> <a href="category-268-b0.html"> 软糖 </a> </li>
+                        <li> <a href="category-275-b0.html"> 咖啡糖 </a> </li>
+                        <li> <a href="category-276-b0.html"> 水果糖 </a> </li>
+                        <li> <a href="category-288-b0.html"> 茶味糖 </a> </li>
+                        <li> <a href="category-289-b0.html"> 薄荷糖 </a> </li>
+                        <li> <a href="category-290-b0.html"> 其他口味糖果 </a> </li>
                       </ul>
         </li>
-                <li> <a href="category-163-b0.html"> 肉类 </a>
+                <li> <a href="category-165-b0.html"> 饮料饮品 </a>
           <ul>
-                        <li> <a href="category-171-b0.html"> 素肉 </a> </li>
-                        <li> <a href="category-172-b0.html"> 肉干 </a> </li>
+                        <li> <a href="category-240-b0.html"> 碳酸饮料 </a> </li>
+                        <li> <a href="category-241-b0.html"> 功能饮料 </a> </li>
+                        <li> <a href="category-242-b0.html"> 椰奶 </a> </li>
+                        <li> <a href="category-243-b0.html"> 即饮咖啡 </a> </li>
+                        <li> <a href="category-244-b0.html"> 饮用水 </a> </li>
+                        <li> <a href="category-245-b0.html"> 果蔬汁 </a> </li>
+                        <li> <a href="category-246-b0.html"> 茶饮 </a> </li>
+                        <li> <a href="category-247-b0.html"> 含乳饮料 </a> </li>
+                        <li> <a href="category-304-b0.html"> 健康醋类饮品 </a> </li>
                       </ul>
         </li>
-                <li> <a href="category-164-b0.html"> 膨化零食 </a>
+                <li> <a href="category-166-b0.html"> 冲饮/咖啡/茶 </a>
           <ul>
+                        <li> <a href="category-248-b0.html"> 麦片 </a> </li>
+                        <li> <a href="category-249-b0.html"> 奶粉 </a> </li>
+                        <li> <a href="category-250-b0.html"> 豆奶粉 </a> </li>
+                        <li> <a href="category-251-b0.html"> 可可粉 </a> </li>
+                        <li> <a href="category-252-b0.html"> 芝麻糊 </a> </li>
+                        <li> <a href="category-253-b0.html"> 花草茶 </a> </li>
+                        <li> <a href="category-254-b0.html"> 乌龙茶 </a> </li>
+                        <li> <a href="category-255-b0.html"> 绿茶 </a> </li>
+                        <li> <a href="category-256-b0.html"> 红茶 </a> </li>
+                        <li> <a href="category-257-b0.html"> 奶茶 </a> </li>
+                        <li> <a href="category-258-b0.html"> 速溶咖啡 </a> </li>
+                        <li> <a href="category-259-b0.html"> 咖啡豆 </a> </li>
+                        <li> <a href="category-260-b0.html"> 咖啡粉 </a> </li>
+                        <li> <a href="category-331-b0.html"> 健康茶冲饮 </a> </li>
                       </ul>
         </li>
-                <li> <a href="category-165-b0.html"> 豆制食品 </a>
+                <li> <a href="category-305-b0.html"> 巧克力 </a>
           <ul>
-                      </ul>
-        </li>
-                <li> <a href="category-166-b0.html"> 饮料 </a>
-          <ul>
-                      </ul>
-        </li>
-                <li> <a href="category-167-b0.html"> 饼干 </a>
-          <ul>
-                        <li> <a href="category-168-b0.html"> 米果&amp;米饼 </a> </li>
-                        <li> <a href="category-169-b0.html"> 蛋卷 </a> </li>
-                        <li> <a href="category-170-b0.html"> 饼干棒 </a> </li>
+                        <li> <a href="category-306-b0.html"> 牛奶巧克力 </a> </li>
+                        <li> <a href="category-307-b0.html"> 黑巧克力 </a> </li>
+                        <li> <a href="category-308-b0.html"> 松露巧克力 </a> </li>
+                        <li> <a href="category-309-b0.html"> 夹心巧克力 </a> </li>
+                        <li> <a href="category-310-b0.html"> 混合口味巧克力 </a> </li>
                       </ul>
         </li>
               </ul>
     </li>
-        <li> <a href="category-148-b0.html"> 百味铺 </a>
+        <li> <a href="category-153-b0.html"> 北美食品 </a>
       <ul>
-                <li> <a href="category-178-b0.html"> 腐乳 </a>
+                <li> <a href="category-311-b0.html"> 麦片 </a>
           <ul>
                       </ul>
         </li>
-                <li> <a href="category-179-b0.html"> 调味粉 </a>
+                <li> <a href="category-312-b0.html"> 糖果 </a>
           <ul>
                       </ul>
         </li>
-                <li> <a href="category-180-b0.html"> 调料包 </a>
+                <li> <a href="category-313-b0.html"> 巧克力/含巧克力食品 </a>
           <ul>
                       </ul>
         </li>
-                <li> <a href="category-181-b0.html"> 香料类 </a>
+                <li> <a href="category-314-b0.html"> 坚果 </a>
           <ul>
                       </ul>
         </li>
-                <li> <a href="category-182-b0.html"> 调味酱类 </a>
+                <li> <a href="category-315-b0.html"> 果干 </a>
           <ul>
                       </ul>
         </li>
-                <li> <a href="category-183-b0.html"> 下饭菜 </a>
+                <li> <a href="category-316-b0.html"> 饼干/能量棒 </a>
           <ul>
                       </ul>
         </li>
-                <li> <a href="category-184-b0.html"> 面类干货 </a>
+                <li> <a href="category-318-b0.html"> 薯片/膨化食品 </a>
           <ul>
                       </ul>
         </li>
-                <li> <a href="category-186-b0.html"> 油盐酱醋 </a>
+                <li> <a href="category-319-b0.html"> 糕点 </a>
           <ul>
                       </ul>
         </li>
-                <li> <a href="category-187-b0.html"> 五谷杂粮 </a>
+                <li> <a href="category-320-b0.html"> 果酱 </a>
           <ul>
                       </ul>
         </li>
+                <li> <a href="category-321-b0.html"> 肉类 </a>
+          <ul>
+                      </ul>
+        </li>
+                <li> <a href="category-322-b0.html"> 罐头 </a>
+          <ul>
+                      </ul>
+        </li>
+                <li> <a href="category-323-b0.html"> 调料/酱料 </a>
+          <ul>
+                      </ul>
+        </li>
+                <li> <a href="category-324-b0.html"> 蜂蜜/枫糖 </a>
+          <ul>
+                      </ul>
+        </li>
+              </ul>
+    </li>
+        <li> <a href="category-338-b0.html"> Kirkland专区 </a>
+      <ul>
+                <li> <a href="category-356-b0.html"> 膨化食品 </a>
+          <ul>
+                      </ul>
+        </li>
+                <li> <a href="category-357-b0.html"> 炒货/坚果 </a>
+          <ul>
+                      </ul>
+        </li>
+                <li> <a href="category-358-b0.html"> 果干/果酱 </a>
+          <ul>
+                      </ul>
+        </li>
+                <li> <a href="category-359-b0.html"> 蜂蜜/枫糖 </a>
+          <ul>
+                      </ul>
+        </li>
+                <li> <a href="category-360-b0.html"> 糖果/巧克力 </a>
+          <ul>
+                      </ul>
+        </li>
+              </ul>
+    </li>
+        <li> <a href="category-336-b0.html"> 零食王国 </a>
+      <ul>
+                <li> <a href="category-362-b0.html"> 糖果 </a>
+          <ul>
+                      </ul>
+        </li>
+                <li> <a href="category-363-b0.html"> 巧克力 </a>
+          <ul>
+                      </ul>
+        </li>
+                <li> <a href="category-364-b0.html"> 坚果/炒货 </a>
+          <ul>
+                      </ul>
+        </li>
+                <li> <a href="category-365-b0.html"> 饼干糕点 </a>
+          <ul>
+                      </ul>
+        </li>
+              </ul>
+    </li>
+        <li> <a href="category-332-b0.html"> 蔬果园 </a>
+      <ul>
+                <li> <a href="category-333-b0.html"> 鲜果 </a>
+          <ul>
+                      </ul>
+        </li>
+                <li> <a href="category-334-b0.html"> 蔬菜 </a>
+          <ul>
+                      </ul>
+        </li>
+              </ul>
+    </li>
+        <li> <a href="category-335-b0.html"> 海鲜坊 </a>
+      <ul>
+              </ul>
+    </li>
+        <li> <a href="category-150-b0.html"> 日用品 </a>
+      <ul>
+                <li> <a href="category-370-b0.html"> 小家电 </a>
+          <ul>
+                      </ul>
+        </li>
+                <li> <a href="category-371-b0.html"> 家居用品 </a>
+          <ul>
+                      </ul>
+        </li>
+                <li> <a href="category-372-b0.html"> 美容美发 </a>
+          <ul>
+                      </ul>
+        </li>
+              </ul>
+    </li>
+        <li> <a href="category-342-b0.html"> 亚洲美食 </a>
+      <ul>
+                <li> <a href="category-343-b0.html"> 韩国美食 </a>
+          <ul>
+                        <li> <a href="category-344-b0.html"> 零食 </a> </li>
+                        <li> <a href="category-345-b0.html"> 厨房酱料 </a> </li>
+                        <li> <a href="category-352-b0.html"> 方便食品 </a> </li>
+                        <li> <a href="category-354-b0.html"> 饮料 </a> </li>
+                        <li> <a href="category-355-b0.html"> 冲调茶饮 </a> </li>
+                      </ul>
+        </li>
+                <li> <a href="category-348-b0.html"> 日本美食 </a>
+          <ul>
+                        <li> <a href="category-349-b0.html"> 零食 </a> </li>
+                        <li> <a href="category-350-b0.html"> 糖果/巧克力 </a> </li>
+                        <li> <a href="category-351-b0.html"> 调料 </a> </li>
+                        <li> <a href="category-353-b0.html"> 方便食品 </a> </li>
+                      </ul>
+        </li>
+              </ul>
+    </li>
+        <li> <a href="category-361-b0.html"> 方便速食 </a>
+      <ul>
               </ul>
     </li>
       </ul>
