@@ -6,17 +6,6 @@
 <table border="0" cellspacing="0" cellpadding="0" style="width:100%;">
 <tr>
 <td>
-
-
-
-
-
-
-
-
-
-
-
    <script>
         jssor_category_slide_starter = function (containerId) {
            
